@@ -1,0 +1,16 @@
+@import "@westwinds/ui/globals.css";
+@source "../../../../packages/ui/src";
+
+.phone-screen {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.phone-screen::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  background: #e9edea;
+}

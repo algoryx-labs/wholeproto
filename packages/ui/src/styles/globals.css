@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #F6F8F6;
+  --color-surface: #FFFFFF;
+  --color-surface-sunken: #EEF2EF;
+  --color-foreground: #0E1A15;
+  --color-muted-foreground: #5B6B63;
+  --color-subtle-foreground: #8A978F;
+  --color-border: #E1E7E3;
+  --color-border-strong: #CBD5CF;
+
+  --color-primary: #0B5D45;
+  --color-primary-hover: #094D39;
+  --color-primary-soft: #E3F1EB;
+  --color-primary-foreground: #FFFFFF;
+
+  --color-offer: #E0890B;
+  --color-offer-soft: #FDF1DC;
+
+  --color-success: #13795B;
+  --color-success-soft: #E0F4EC;
+  --color-warning: #B25E09;
+  --color-warning-soft: #FCEFD9;
+  --color-danger: #C0342B;
+  --color-danger-soft: #FBE6E4;
+  --color-info: #2458B8;
+  --color-info-soft: #E4ECFA;
+
+  --color-ring: #0B5D45;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-card: 0 1px 2px rgba(14, 26, 21, 0.04), 0 2px 8px rgba(14, 26, 21, 0.04);
+  --shadow-pop: 0 8px 28px rgba(14, 26, 21, 0.10), 0 2px 6px rgba(14, 26, 21, 0.06);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: #F6F8F6;
+  --surface: #FFFFFF;
+  --surface-sunken: #EEF2EF;
+  --foreground: #0E1A15;
+  --muted-foreground: #5B6B63;
+  --subtle-foreground: #8A978F;
+  --border: #E1E7E3;
+  --border-strong: #CBD5CF;
+
+  --primary: #0B5D45;
+  --primary-hover: #094D39;
+  --primary-soft: #E3F1EB;
+  --primary-foreground: #FFFFFF;
+
+  --offer: #E0890B;
+  --offer-soft: #FDF1DC;
+
+  --success: #13795B;
+  --success-soft: #E0F4EC;
+  --warning: #B25E09;
+  --warning-soft: #FCEFD9;
+  --danger: #C0342B;
+  --danger-soft: #FBE6E4;
+  --info: #2458B8;
+  --info-soft: #E4ECFA;
+
+  --ring: #0B5D45;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 1px 2px rgba(14, 26, 21, 0.04), 0 2px 8px rgba(14, 26, 21, 0.04);
+  --shadow-pop: 0 8px 28px rgba(14, 26, 21, 0.10), 0 2px 6px rgba(14, 26, 21, 0.06);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.font-display {
+  font-family: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+}

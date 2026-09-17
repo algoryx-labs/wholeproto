@@ -1,0 +1,15 @@
+export const brand = {
+  companyName: "Westwinds Wholesale",
+  shortName: "Westwinds",
+  adminAppName: "Westwinds Admin",
+  b2bAppName: "Westwinds Trade",
+  mobileAppName: "Westwinds",
+  supportEmail: "support@westwinds.ca",
+  supportPhone: "+1 (905) 555-0142",
+  currency: "CAD",
+  locale: "en-CA",
+  taxRate: 0.13,
+  taxLabel: "HST",
+} as const;
+
+export type Brand = typeof brand;
