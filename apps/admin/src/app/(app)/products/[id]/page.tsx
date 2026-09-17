@@ -22,14 +22,15 @@ import {
   Skeleton,
   Switch,
 } from "@westwinds/ui";
-import { useProductStore } from "@/stores/product-store";
+import { EMPTY_PRODUCT_OVERLAY, useProductStore } from "@/stores/product-store";
 
 export default function ProductDetailPage() {
   const params = useParams<{ id: string }>();
   const id = decodeURIComponent(params.id);
   const updateProduct = useProductStore((s) => s.updateProduct);
-  const overlay = useProductStore((s) => s.overlays[id] ?? {});
-
+  const overlay = useProductStore(
+    (s) => s.overlays[id] ?? EMPTY_PRODUCT_OVERLAY,
+  );
   const productQ = useQuery({
     queryKey: ["product", id],
     queryFn: () => getProduct(id),

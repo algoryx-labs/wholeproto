@@ -3,7 +3,6 @@
 import * as React from "react";
 import { Battery, Signal, Wifi } from "lucide-react";
 import { Toaster } from "@westwinds/ui";
-import { cn } from "@westwinds/lib";
 import {
   BEZEL,
   FRAME_BREAKPOINT,
@@ -34,7 +33,7 @@ function StatusBar() {
 
 function HomeIndicator() {
   return (
-    <div className="pointer-events-none absolute inset-x-0 bottom-2 z-40 flex justify-center">
+    <div className="pointer-events-none absolute inset-x-0 bottom-2 z-50 flex justify-center">
       <div className="h-[5px] w-[134px] rounded-full bg-[var(--foreground)]/80" />
     </div>
   );
@@ -46,14 +45,94 @@ function DynamicIsland() {
   );
 }
 
+/**
+ * Layered screen:
+ * - scroll layer (absolute inset) — page content only
+ * - chrome layer (absolute bottom) — cart + tabs, never scrolls
+ */
+function ScreenShell({
+  screenRef,
+  chromeRef,
+  width,
+  height,
+  borderRadius,
+  children,
+}: {
+  screenRef: React.RefCallback<HTMLDivElement>;
+  chromeRef: React.RefCallback<HTMLDivElement>;
+  width: number | string;
+  height: number | string;
+  borderRadius?: number;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      ref={screenRef}
+      className="phone-screen bg-[var(--background)] text-[var(--foreground)]"
+      style={{
+        position: "relative",
+        width,
+        height,
+        borderRadius,
+        overflow: "hidden",
+        transform: "translateZ(0)",
+        isolation: "isolate",
+      }}
+    >
+      <StatusBar />
+
+      <div
+        className="phone-scroll [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        style={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0,
+          overflowX: "hidden",
+          overflowY: "auto",
+          overscrollBehavior: "contain",
+          paddingTop: STATUS_BAR_H,
+          WebkitOverflowScrolling: "touch",
+        }}
+      >
+        {children}
+      </div>
+
+      {/* Non-scrolling chrome mount — cart bar + tabs portal here */}
+      <div
+        ref={chromeRef}
+        className="phone-chrome"
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 30,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          pointerEvents: "none",
+        }}
+      />
+
+      <HomeIndicator />
+      <Toaster position="top-center" offset={58} richColors closeButton />
+    </div>
+  );
+}
+
 export function PhoneFrame({ children }: { children: React.ReactNode }) {
-  const screenRef = React.useRef<HTMLDivElement>(null);
   const [screenEl, setScreenEl] = React.useState<HTMLElement | null>(null);
+  const [chromeEl, setChromeEl] = React.useState<HTMLElement | null>(null);
   const [framed, setFramed] = React.useState(true);
   const [scale, setScale] = React.useState(1);
 
-  React.useEffect(() => {
-    setScreenEl(screenRef.current);
+  const screenRef = React.useCallback((node: HTMLDivElement | null) => {
+    setScreenEl(node);
+  }, []);
+  const chromeRef = React.useCallback((node: HTMLDivElement | null) => {
+    setChromeEl(node);
   }, []);
 
   React.useEffect(() => {
@@ -73,24 +152,23 @@ export function PhoneFrame({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  const screenClass = cn(
-    "phone-screen relative bg-[var(--background)] text-[var(--foreground)]",
-    "overflow-y-auto overscroll-contain",
-    "[transform:translateZ(0)]",
+  const body = (
+    <div style={{ position: "relative", minHeight: "100%", paddingBottom: 8 }}>
+      {children}
+    </div>
   );
 
   if (!framed) {
     return (
-      <PhoneFrameProvider screenEl={screenEl} framed={false}>
-        <div
-          ref={screenRef}
-          className={cn(screenClass, "min-h-dvh w-full")}
+      <PhoneFrameProvider screenEl={screenEl} chromeEl={chromeEl} framed={false}>
+        <ScreenShell
+          screenRef={screenRef}
+          chromeRef={chromeRef}
+          width="100%"
+          height="100dvh"
         >
-          <StatusBar />
-          <div className="relative min-h-dvh pt-[54px] pb-8">{children}</div>
-          <HomeIndicator />
-          <Toaster position="top-center" offset={58} richColors closeButton />
-        </div>
+          {body}
+        </ScreenShell>
       </PhoneFrameProvider>
     );
   }
@@ -99,9 +177,9 @@ export function PhoneFrame({ children }: { children: React.ReactNode }) {
   const outerH = SCREEN_H + BEZEL * 2;
 
   return (
-    <PhoneFrameProvider screenEl={screenEl} framed>
+    <PhoneFrameProvider screenEl={screenEl} chromeEl={chromeEl} framed>
       <div
-        className="flex min-h-dvh items-center justify-center"
+        className="flex min-h-dvh items-center justify-center overflow-hidden"
         style={{
           backgroundColor: "#E9EDEA",
           backgroundImage:
@@ -125,20 +203,15 @@ export function PhoneFrame({ children }: { children: React.ReactNode }) {
             }}
           >
             <DynamicIsland />
-            <div
-              ref={screenRef}
-              className={screenClass}
-              style={{
-                width: SCREEN_W,
-                height: SCREEN_H,
-                borderRadius: SCREEN_RADIUS,
-              }}
+            <ScreenShell
+              screenRef={screenRef}
+              chromeRef={chromeRef}
+              width={SCREEN_W}
+              height={SCREEN_H}
+              borderRadius={SCREEN_RADIUS}
             >
-              <StatusBar />
-              <div className="relative min-h-full pt-[54px] pb-8">{children}</div>
-              <HomeIndicator />
-              <Toaster position="top-center" offset={58} richColors closeButton />
-            </div>
+              {body}
+            </ScreenShell>
           </div>
         </div>
       </div>

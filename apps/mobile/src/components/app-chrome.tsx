@@ -15,6 +15,7 @@ import { calcCartTotals } from "@/lib/cart-math";
 import { TAB_BAR_H } from "@/lib/constants";
 import { useCartStore } from "@/stores/cart";
 import { useSessionStore } from "@/stores/session";
+import { ScreenDock } from "./screen-dock";
 
 const TABS = [
   { href: "/", label: "Home", icon: Home },
@@ -58,29 +59,21 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function FloatingCartBar() {
+function FloatingCartBar({ visible }: { visible: boolean }) {
   const lines = useCartStore((s) => s.lines);
   const promoCode = useCartStore((s) => s.promoCode);
   const count = lines.reduce((n, l) => n + l.quantity, 0);
   const totals = calcCartTotals(lines, promoCode);
-  const pathname = usePathname();
-  const hide =
-    pathname === "/cart" ||
-    pathname === "/checkout" ||
-    pathname.startsWith("/order-success") ||
-    pathname === "/welcome" ||
-    pathname === "/login";
 
   return (
     <AnimatePresence>
-      {count > 0 && !hide ? (
+      {visible && count > 0 ? (
         <motion.div
-          initial={{ y: 80, opacity: 0 }}
+          initial={{ y: 24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 80, opacity: 0 }}
+          exit={{ y: 24, opacity: 0 }}
           transition={{ type: "spring", stiffness: 380, damping: 32 }}
-          className="fixed inset-x-3 z-30"
-          style={{ bottom: TAB_BAR_H + 18 }}
+          style={{ paddingLeft: 12, paddingRight: 12, paddingBottom: 10 }}
         >
           <Link
             href="/cart"
@@ -108,7 +101,7 @@ function BottomTabs() {
 
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-20 border-t border-[var(--border)] bg-[var(--surface)]/95 backdrop-blur-md"
+      className="border-t border-[var(--border)] bg-[var(--surface)]/95 backdrop-blur-md"
       style={{ height: TAB_BAR_H, paddingBottom: 10 }}
     >
       <ul className="grid h-full grid-cols-4">
@@ -128,10 +121,7 @@ function BottomTabs() {
                     : "text-[var(--muted-foreground)]",
                 )}
               >
-                <Icon
-                  className="size-5"
-                  strokeWidth={active ? 2.4 : 2}
-                />
+                <Icon className="size-5" strokeWidth={active ? 2.4 : 2} />
                 {label}
               </Link>
             </li>
@@ -142,20 +132,46 @@ function BottomTabs() {
   );
 }
 
+/** Sticky chrome — portaled into the phone frame chrome layer (never scrolls). */
+function MobileChrome() {
+  const pathname = usePathname();
+  const tabs = showTabs(pathname);
+  const hideCart =
+    pathname === "/cart" ||
+    pathname === "/checkout" ||
+    pathname.startsWith("/order-success") ||
+    pathname === "/welcome" ||
+    pathname === "/login";
+
+  if (!tabs && hideCart) return null;
+
+  return (
+    <ScreenDock>
+      {!hideCart ? <FloatingCartBar visible /> : null}
+      {tabs ? <BottomTabs /> : null}
+    </ScreenDock>
+  );
+}
+
 export function AppChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const tabs = showTabs(pathname);
   const lines = useCartStore((s) => s.lines);
   const hasCart = lines.length > 0;
+  const hideCart =
+    pathname === "/cart" ||
+    pathname === "/checkout" ||
+    pathname.startsWith("/order-success");
   const bottomPad = tabs
-    ? TAB_BAR_H + (hasCart && pathname !== "/cart" ? 72 : 12)
-    : 12;
+    ? TAB_BAR_H + (hasCart && !hideCart ? 72 : 16)
+    : hideCart
+      ? 88
+      : 16;
 
   return (
     <AuthGate>
       <div style={{ paddingBottom: bottomPad }}>{children}</div>
-      <FloatingCartBar />
-      <BottomTabs />
+      <MobileChrome />
     </AuthGate>
   );
 }

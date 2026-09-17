@@ -43,7 +43,9 @@ function ResetHandler() {
 function ScrollToTop() {
   const pathname = usePathname();
   React.useEffect(() => {
-    const screen = document.querySelector(".phone-screen");
+    const screen =
+      document.querySelector(".phone-scroll") ??
+      document.querySelector(".phone-screen");
     if (screen) screen.scrollTo({ top: 0 });
     else window.scrollTo({ top: 0 });
   }, [pathname]);

@@ -12,6 +12,9 @@ export interface ProductOverlay {
   status?: "draft" | "active" | "archived";
 }
 
+/** Stable empty overlay — never allocate `{}` inside Zustand selectors. */
+export const EMPTY_PRODUCT_OVERLAY: ProductOverlay = Object.freeze({});
+
 interface ProductState {
   overlays: Record<string, ProductOverlay>;
   updateProduct: (id: string, patch: ProductOverlay) => void;
@@ -29,7 +32,7 @@ export const useProductStore = create<ProductState>()(
             [id]: { ...s.overlays[id], ...patch },
           },
         })),
-      getOverlay: (id) => get().overlays[id] ?? {},
+      getOverlay: (id) => get().overlays[id] ?? EMPTY_PRODUCT_OVERLAY,
     }),
     { name: "ww-admin:products" },
   ),

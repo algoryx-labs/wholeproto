@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { calcCartTotals } from "@/lib/cart-math";
 import { FREE_DELIVERY_MIN } from "@/lib/constants";
 import { cartLineAmount, useCartStore } from "@/stores/cart";
+import { ScreenDock } from "@/components/screen-dock";
 
 export default function CartPage() {
   const router = useRouter();
@@ -174,15 +175,17 @@ export default function CartPage() {
         </div>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-[var(--border)] bg-[var(--surface)]/95 px-4 pb-6 pt-3 backdrop-blur-md">
-        <Button
-          size="lg"
-          className="h-12 w-full text-base active:scale-[0.98]"
-          onClick={() => router.push("/checkout")}
-        >
-          Proceed to checkout
-        </Button>
-      </div>
+      <ScreenDock className="inset-x-0 bottom-0 z-30">
+        <div className="border-t border-[var(--border)] bg-[var(--surface)]/95 px-4 pb-6 pt-3 backdrop-blur-md">
+          <Button
+            size="lg"
+            className="h-12 w-full text-base active:scale-[0.98]"
+            onClick={() => router.push("/checkout")}
+          >
+            Proceed to checkout
+          </Button>
+        </div>
+      </ScreenDock>
     </div>
   );
 }

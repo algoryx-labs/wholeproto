@@ -4,11 +4,13 @@ import * as React from "react";
 
 interface PhoneFrameContextValue {
   screenEl: HTMLElement | null;
+  chromeEl: HTMLElement | null;
   framed: boolean;
 }
 
 const PhoneFrameContext = React.createContext<PhoneFrameContextValue>({
   screenEl: null,
+  chromeEl: null,
   framed: false,
 });
 
@@ -18,16 +20,18 @@ export function usePhoneFrame() {
 
 export function PhoneFrameProvider({
   screenEl,
+  chromeEl,
   framed,
   children,
 }: {
   screenEl: HTMLElement | null;
+  chromeEl: HTMLElement | null;
   framed: boolean;
   children: React.ReactNode;
 }) {
   const value = React.useMemo(
-    () => ({ screenEl, framed }),
-    [screenEl, framed],
+    () => ({ screenEl, chromeEl, framed }),
+    [screenEl, chromeEl, framed],
   );
   return (
     <PhoneFrameContext.Provider value={value}>

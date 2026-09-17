@@ -23,6 +23,7 @@ import {
 import { toast } from "sonner";
 import { useCartStore } from "@/stores/cart";
 import { productImageSrc } from "@/lib/product-image";
+import { ScreenDock } from "@/components/screen-dock";
 
 export default function ProductPage() {
   const { sku } = useParams<{ sku: string }>();
@@ -159,16 +160,18 @@ export default function ProductPage() {
         </p>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-[var(--border)] bg-[var(--surface)]/95 px-4 pb-6 pt-3 backdrop-blur-md">
-        <Button
-          size="lg"
-          className="h-12 w-full text-base active:scale-[0.98]"
-          onClick={addToCart}
-          disabled={health === "out_of_stock"}
-        >
-          Add to cart · {formatCurrency(product.b2cPrice * qty)}
-        </Button>
-      </div>
+      <ScreenDock className="inset-x-0 bottom-0 z-30">
+        <div className="border-t border-[var(--border)] bg-[var(--surface)]/95 px-4 pb-6 pt-3 backdrop-blur-md">
+          <Button
+            size="lg"
+            className="h-12 w-full text-base active:scale-[0.98]"
+            onClick={addToCart}
+            disabled={health === "out_of_stock"}
+          >
+            Add to cart · {formatCurrency(product.b2cPrice * qty)}
+          </Button>
+        </div>
+      </ScreenDock>
     </div>
   );
 }

@@ -12,6 +12,7 @@ import { AddressPickerSheet } from "@/components/address-sheet";
 import { MobileSheet } from "@/components/mobile-sheet";
 import { calcCartTotals, round2 } from "@/lib/cart-math";
 import { getDeliveryDays } from "@/lib/delivery-slots";
+import { ScreenDock } from "@/components/screen-dock";
 import { useCartStore } from "@/stores/cart";
 import { useSessionStore } from "@/stores/session";
 
@@ -227,16 +228,18 @@ export default function CheckoutPage() {
         </div>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-[var(--border)] bg-[var(--surface)]/95 px-4 pb-6 pt-3 backdrop-blur-md">
-        <Button
-          size="lg"
-          className="h-12 w-full text-base active:scale-[0.98]"
-          disabled={placing || !slot || slot.full}
-          onClick={placeOrder}
-        >
-          {placing ? "Placing order…" : `Place order · ${formatCurrency(totals.total)}`}
-        </Button>
-      </div>
+      <ScreenDock className="inset-x-0 bottom-0 z-30">
+        <div className="border-t border-[var(--border)] bg-[var(--surface)]/95 px-4 pb-6 pt-3 backdrop-blur-md">
+          <Button
+            size="lg"
+            className="h-12 w-full text-base active:scale-[0.98]"
+            disabled={placing || !slot || slot.full}
+            onClick={placeOrder}
+          >
+            {placing ? "Placing order…" : `Place order · ${formatCurrency(totals.total)}`}
+          </Button>
+        </div>
+      </ScreenDock>
 
       <AddressPickerSheet
         open={addrOpen}
