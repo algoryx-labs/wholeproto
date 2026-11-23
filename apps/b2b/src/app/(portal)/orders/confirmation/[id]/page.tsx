@@ -71,7 +71,7 @@ export default function OrderConfirmationPage() {
               ? "An Approver or Account admin on Lakeshore Fresh must approve before warehouse picking starts."
               : pickup
                 ? `Your order will be packed at ${warehouse.name}. Show the pickup code at the dock.`
-                : `Westwinds has received your order and will stage it at ${warehouse.name}.`
+                : `Calgary Wholesale has received your order and will stage it at ${warehouse.name}.`
           }
         />
         <StatusBadge status={order.status} />

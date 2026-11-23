@@ -13,12 +13,18 @@ import {
   SCREEN_W,
   STATUS_BAR_H,
 } from "@/lib/constants";
-import { PhoneFrameProvider } from "./phone-frame-context";
+import { PhoneFrameProvider, usePhoneFrame } from "./phone-frame-context";
 
 function StatusBar() {
+  const { statusTone } = usePhoneFrame();
+  const light = statusTone === "light";
   return (
     <div
-      className="pointer-events-none absolute inset-x-0 top-0 z-40 flex items-end justify-between px-7 pb-2 text-[13px] font-semibold text-[var(--foreground)]"
+      className={
+        light
+          ? "pointer-events-none absolute inset-x-0 top-0 z-40 flex items-end justify-between px-7 pb-2 text-[13px] font-semibold text-white"
+          : "pointer-events-none absolute inset-x-0 top-0 z-40 flex items-end justify-between px-7 pb-2 text-[13px] font-semibold text-[var(--foreground)]"
+      }
       style={{ height: STATUS_BAR_H }}
     >
       <span className="tabular">9:41</span>
@@ -181,9 +187,9 @@ export function PhoneFrame({ children }: { children: React.ReactNode }) {
       <div
         className="flex min-h-dvh items-center justify-center overflow-hidden"
         style={{
-          backgroundColor: "#E9EDEA",
+          backgroundColor: "#E6EBE7",
           backgroundImage:
-            "radial-gradient(ellipse 70% 55% at 50% 42%, rgba(255,255,255,0.7), transparent 70%)",
+            "radial-gradient(ellipse 70% 55% at 50% 42%, rgba(255,255,255,0.75), transparent 70%)",
         }}
       >
         <div

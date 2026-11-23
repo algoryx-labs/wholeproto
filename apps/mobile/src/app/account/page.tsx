@@ -34,7 +34,7 @@ const FAQ = [
   },
   {
     q: "Can I pay at the door?",
-    a: "Yes — choose Pay at door on checkout. Card 4242 is the mock card option.",
+    a: "Yes — choose Pay at door, or pay now on the mock gateway with card 4242 / Apple Pay / Google Pay.",
   },
 ];
 
@@ -71,9 +71,7 @@ export default function AccountPage() {
 
   return (
     <div className="space-y-5 px-4 pb-6 pt-2">
-      <h1 className="font-display text-2xl font-semibold tracking-[-0.03em]">
-        Account
-      </h1>
+      <h1 className="text-[22px] font-bold tracking-[-0.03em]">Account</h1>
 
       <div className="rounded-[var(--radius-lg)] bg-[var(--surface)] p-4 shadow-[var(--shadow-card)]">
         <p className="font-display text-xl font-semibold">

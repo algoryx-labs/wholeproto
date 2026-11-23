@@ -48,7 +48,7 @@ export default function RequestAccessPage() {
                 Application received
               </h1>
               <p className="text-sm text-[var(--muted-foreground)]">
-                Westwinds credit will review {form.businessName || "your account"}{" "}
+                Calgary Wholesale credit will review {form.businessName || "your account"}{" "}
                 within one business day. You will receive a Trade login at{" "}
                 {form.buyerEmail || "your buyer email"} once approved.
               </p>
@@ -68,8 +68,6 @@ export default function RequestAccessPage() {
         <CardHeader className="space-y-3">
           <Logo
             size="md"
-            src="/logo.png"
-            showWordmark={false}
             wordmark={brand.b2bAppName}
             className="self-center"
           />
@@ -103,7 +101,7 @@ export default function RequestAccessPage() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="hst">HST / BN</Label>
+                <Label htmlFor="hst">GST / BN</Label>
                 <Input
                   id="hst"
                   value={form.hst}

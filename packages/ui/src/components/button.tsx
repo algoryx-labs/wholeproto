@@ -16,7 +16,7 @@ const buttonVariants = cva(
           "border border-[var(--border-strong)] bg-[var(--surface)] text-[var(--foreground)] hover:bg-[var(--surface-sunken)]",
         ghost: "hover:bg-[var(--primary-soft)] hover:text-[var(--primary)]",
         danger: "bg-[var(--danger)] text-white hover:bg-[#A82C24]",
-        soft: "bg-[var(--primary-soft)] text-[var(--primary)] hover:bg-[#D5EBE2]",
+        soft: "bg-[var(--primary-soft)] text-[var(--primary)] hover:bg-[color-mix(in_srgb,var(--primary)_18%,white)]",
       },
       size: {
         default: "h-9 px-4 py-2",

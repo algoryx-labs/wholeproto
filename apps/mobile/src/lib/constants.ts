@@ -12,5 +12,6 @@ export const PROMO_CODE = "FRESH10";
 export const PROMO_PCT = 0.1;
 export const SESSION_KEY = "ww-mobile:session";
 export const CART_KEY = "ww-mobile:cart";
+export const CHECKOUT_KEY = "ww-mobile:checkout";
 export const FRAME_BREAKPOINT = 500;
 export const FRAME_SCALE_VH = 900;

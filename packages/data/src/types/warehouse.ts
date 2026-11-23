@@ -10,7 +10,7 @@ export interface Warehouse {
   address: {
     line1: string;
     city: string;
-    province: "ON";
+    province: "ON" | "AB";
     postalCode: string;
     country: "CA";
   };

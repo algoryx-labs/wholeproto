@@ -46,7 +46,7 @@ export default function OrdersPage() {
     <div className="space-y-6">
       <PageHeader
         title="Orders"
-        description="Lakeshore Fresh Trade history, including WW-B-10482 and new checkouts."
+        description="Lakeshore Fresh Trade history, including CW-B-10482 and new checkouts."
       />
 
       {isLoading ? (

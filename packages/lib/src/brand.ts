@@ -1,15 +1,16 @@
 export const brand = {
-  companyName: "Westwinds Wholesale",
-  shortName: "Westwinds",
+  companyName: "Calgary Wholesale",
+  shortName: "Calgary Wholesale",
   adminAppName: "Calgary Wholesale Admin",
   b2bAppName: "Calgary Wholesale Cash N Carry",
-  mobileAppName: "Westwinds",
+  mobileAppName: "Calgary Wholesale",
   supportEmail: "support@calgarywholesale.ca",
-  supportPhone: "+1 (905) 555-0142",
+  supportPhone: "+1 (403) 555-0142",
   currency: "CAD",
   locale: "en-CA",
-  taxRate: 0.13,
-  taxLabel: "HST",
+  taxRate: 0.05,
+  taxLabel: "GST",
+  logoSrc: "/assets/logo.png",
 } as const;
 
 export type Brand = typeof brand;

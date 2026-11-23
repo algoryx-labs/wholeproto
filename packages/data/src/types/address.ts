@@ -4,7 +4,7 @@ export interface Address {
   line1: string;
   line2?: string;
   city: string;
-  province: "ON";
+  province: "ON" | "AB";
   postalCode: string;
   country: "CA";
   isDefault?: boolean;

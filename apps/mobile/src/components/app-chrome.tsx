@@ -4,14 +4,17 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
+  ChevronRight,
   Home,
   LayoutGrid,
   Package,
+  RotateCcw,
+  Search,
   UserRound,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { formatCurrency, cn } from "@westwinds/lib";
-import { calcCartTotals } from "@/lib/cart-math";
+import { cn } from "@westwinds/lib";
+import { ProductImage } from "@westwinds/ui";
 import { TAB_BAR_H } from "@/lib/constants";
 import { useCartStore } from "@/stores/cart";
 import { useSessionStore } from "@/stores/session";
@@ -19,12 +22,13 @@ import { ScreenDock } from "./screen-dock";
 
 const TABS = [
   { href: "/", label: "Home", icon: Home },
+  { href: "/orders", label: "Order again", icon: RotateCcw },
   { href: "/categories", label: "Categories", icon: LayoutGrid },
-  { href: "/orders", label: "Orders", icon: Package },
+  { href: "/search", label: "Search", icon: Search },
   { href: "/account", label: "Account", icon: UserRound },
 ] as const;
 
-const TAB_ROUTES = new Set(["/", "/categories", "/orders", "/account"]);
+const TAB_ROUTES = new Set(["/", "/categories", "/orders", "/account", "/search"]);
 const PUBLIC = new Set(["/welcome", "/login"]);
 
 function showTabs(pathname: string) {
@@ -61,32 +65,52 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
 
 function FloatingCartBar({ visible }: { visible: boolean }) {
   const lines = useCartStore((s) => s.lines);
-  const promoCode = useCartStore((s) => s.promoCode);
   const count = lines.reduce((n, l) => n + l.quantity, 0);
-  const totals = calcCartTotals(lines, promoCode);
+  const preview = lines.slice(0, 2);
 
   return (
     <AnimatePresence>
       {visible && count > 0 ? (
         <motion.div
-          initial={{ y: 24, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 24, opacity: 0 }}
-          transition={{ type: "spring", stiffness: 380, damping: 32 }}
-          style={{ paddingLeft: 12, paddingRight: 12, paddingBottom: 10 }}
+          initial={{ y: 28, opacity: 0, scale: 0.96 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
+          exit={{ y: 28, opacity: 0, scale: 0.96 }}
+          transition={{ type: "spring", stiffness: 420, damping: 30 }}
+          className="flex justify-center px-4 pb-2"
         >
           <Link
             href="/cart"
-            className="flex h-14 items-center justify-between rounded-[var(--radius-lg)] bg-[var(--primary)] px-4 text-[var(--primary-foreground)] shadow-[var(--shadow-pop)] active:scale-[0.98]"
+            className="flex h-[52px] w-full max-w-[340px] items-center gap-3 rounded-full bg-[var(--primary)] pl-1.5 pr-2 text-[var(--primary-foreground)] shadow-[var(--shadow-pop)] active:scale-[0.98]"
           >
-            <span className="flex items-center gap-2 text-sm font-medium">
-              <span className="flex h-7 min-w-7 items-center justify-center rounded-full bg-white/20 px-2 tabular">
-                {count}
+            <div className="flex -space-x-2">
+              {preview.map((line) => (
+                <div
+                  key={line.productId}
+                  className="overflow-hidden rounded-full border-2 border-[var(--primary)] bg-white"
+                >
+                  <ProductImage
+                    src={line.imageSrc}
+                    category={line.categoryName ?? "Pantry"}
+                    name={line.name}
+                    size="sm"
+                    className="size-10 rounded-full"
+                  />
+                </div>
+              ))}
+              {preview.length === 0 ? (
+                <span className="flex size-10 items-center justify-center rounded-full bg-white/20">
+                  <Package className="size-4" />
+                </span>
+              ) : null}
+            </div>
+            <span className="min-w-0 flex-1 leading-tight">
+              <span className="block text-[13px] font-bold">View cart</span>
+              <span className="block text-[11px] text-white/85">
+                {count} {count === 1 ? "item" : "items"}
               </span>
-              View cart
             </span>
-            <span className="font-semibold tabular">
-              {formatCurrency(totals.total)}
+            <span className="flex size-9 items-center justify-center rounded-full bg-black/15">
+              <ChevronRight className="size-5" strokeWidth={2.5} />
             </span>
           </Link>
         </motion.div>
@@ -101,27 +125,40 @@ function BottomTabs() {
 
   return (
     <nav
-      className="border-t border-[var(--border)] bg-[var(--surface)]/95 backdrop-blur-md"
-      style={{ height: TAB_BAR_H, paddingBottom: 10 }}
+      className="border-t border-[var(--border)] bg-white"
+      style={{ height: TAB_BAR_H, paddingBottom: 8 }}
     >
-      <ul className="grid h-full grid-cols-4">
+      <ul className="grid h-full grid-cols-5">
         {TABS.map(({ href, label, icon: Icon }) => {
           const active =
             href === "/"
               ? pathname === "/"
               : pathname === href || pathname.startsWith(`${href}/`);
+          const isCategories = href === "/categories";
           return (
             <li key={href}>
               <Link
                 href={href}
                 className={cn(
-                  "flex h-full flex-col items-center justify-center gap-0.5 text-[11px] font-medium active:scale-[0.98]",
+                  "flex h-full flex-col items-center justify-center gap-0.5 text-[9px] font-medium active:scale-[0.98]",
                   active
-                    ? "text-[var(--primary)]"
+                    ? "text-[var(--foreground)]"
                     : "text-[var(--muted-foreground)]",
                 )}
               >
-                <Icon className="size-5" strokeWidth={active ? 2.4 : 2} />
+                <span
+                  className={cn(
+                    "flex size-8 items-center justify-center rounded-xl transition-colors",
+                    active && "bg-[var(--nav-active)]",
+                    isCategories && !active && "bg-[var(--surface-sunken)]",
+                  )}
+                >
+                  <Icon
+                    className="size-[18px]"
+                    strokeWidth={active || isCategories ? 2.4 : 2}
+                    fill={active && href === "/" ? "currentColor" : "none"}
+                  />
+                </span>
                 {label}
               </Link>
             </li>
@@ -139,6 +176,7 @@ function MobileChrome() {
   const hideCart =
     pathname === "/cart" ||
     pathname === "/checkout" ||
+    pathname === "/payment" ||
     pathname.startsWith("/order-success") ||
     pathname === "/welcome" ||
     pathname === "/login";
@@ -161,9 +199,10 @@ export function AppChrome({ children }: { children: React.ReactNode }) {
   const hideCart =
     pathname === "/cart" ||
     pathname === "/checkout" ||
+    pathname === "/payment" ||
     pathname.startsWith("/order-success");
   const bottomPad = tabs
-    ? TAB_BAR_H + (hasCart && !hideCart ? 72 : 16)
+    ? TAB_BAR_H + (hasCart && !hideCart ? 68 : 12)
     : hideCart
       ? 88
       : 16;

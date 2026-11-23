@@ -45,7 +45,7 @@ function buildStockLevels(): StockLevel[] {
   for (const product of products) {
     for (const warehouse of warehouses) {
       let health = pickHealth(i);
-      // Demo story: Honeycrisp low at MDC, healthy at BRW, uneven elsewhere
+      // Demo story: featured Roma tomatoes low at MDC, healthy at BRW, uneven elsewhere
       if (product.sku === HONEYCRISP_SKU) {
         if (warehouse.code === "MDC") health = "low_stock";
         else if (warehouse.code === "BRW") health = "in_stock";

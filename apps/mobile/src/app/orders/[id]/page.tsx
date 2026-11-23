@@ -203,7 +203,7 @@ export default function OrderDetailPage() {
         <div className="min-w-0 flex-1">
           <p className="font-medium">Jordan Lee</p>
           <p className="text-sm text-[var(--muted-foreground)]">
-            Your Westwinds driver
+            Your Calgary Wholesale driver
           </p>
         </div>
         <a

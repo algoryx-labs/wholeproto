@@ -147,7 +147,7 @@ export default function OrderDetailPage() {
               <Money amount={order.subtotal} />
             </div>
             <div className="flex justify-between text-[var(--muted-foreground)]">
-              <span>HST ({Math.round(order.taxRate * 100)}%)</span>
+              <span>GST ({Math.round(order.taxRate * 100)}%)</span>
               <Money amount={order.taxAmount} />
             </div>
             <div className="flex justify-between font-semibold">

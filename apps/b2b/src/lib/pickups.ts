@@ -96,7 +96,7 @@ function demoPickup(
   const buyer = lakeshoreCustomer.users.find((u) => u.isPrimary)!;
   return {
     id: `ord-b2b-pu-${seq}`,
-    number: `WW-B-${seq}`,
+    number: `CW-B-${seq}`,
     channel: "b2b",
     status,
     customerId: lakeshoreCustomer.id,
@@ -134,7 +134,7 @@ export const demoPickupOrders: B2BOrder[] = [
     PICKUP_WINDOWS[1],
     "2026-09-15T14:20:00.000Z",
     [
-      { status: "confirmed", at: "2026-09-15T14:20:00.000Z", by: "Westwinds Ops" },
+      { status: "confirmed", at: "2026-09-15T14:20:00.000Z", by: "Calgary Wholesale Ops" },
       { status: "picking", at: "2026-09-16T09:05:00.000Z", by: "Brampton Warehouse" },
       { status: "packed", at: "2026-09-16T15:40:00.000Z", by: "Brampton Warehouse" },
     ],
@@ -146,7 +146,7 @@ export const demoPickupOrders: B2BOrder[] = [
     "2026-09-22",
     PICKUP_WINDOWS[0],
     "2026-09-16T18:10:00.000Z",
-    [{ status: "confirmed", at: "2026-09-16T18:10:00.000Z", by: "Westwinds Ops" }],
+    [{ status: "confirmed", at: "2026-09-16T18:10:00.000Z", by: "Calgary Wholesale Ops" }],
   ),
   demoPickup(
     10934,
@@ -156,7 +156,7 @@ export const demoPickupOrders: B2BOrder[] = [
     PICKUP_WINDOWS[2],
     "2026-09-06T13:00:00.000Z",
     [
-      { status: "confirmed", at: "2026-09-06T13:00:00.000Z", by: "Westwinds Ops" },
+      { status: "confirmed", at: "2026-09-06T13:00:00.000Z", by: "Calgary Wholesale Ops" },
       { status: "packed", at: "2026-09-08T16:30:00.000Z", by: "Mississauga Distribution Centre" },
       { status: "picked_up", at: "2026-09-09T11:42:00.000Z", by: "Dock 4 · signed by buyer" },
     ],

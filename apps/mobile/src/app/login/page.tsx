@@ -17,11 +17,11 @@ const DEMO = {
     {
       id: `${DEMO_BASE.id}-addr-2`,
       label: "Work",
-      line1: "90 Burnhamthorpe Rd W",
-      line2: "Suite 1400",
-      city: "Mississauga",
-      province: "ON" as const,
-      postalCode: "L5B 3C3",
+      line1: "225 11 Ave SE",
+      line2: "Suite 400",
+      city: "Calgary",
+      province: "AB" as const,
+      postalCode: "T2G 0X8",
       country: "CA" as const,
     },
   ],
@@ -71,9 +71,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-full flex-col px-5 pb-8 pt-6">
-      <p className="text-sm font-medium text-[var(--primary)]">{brand.mobileAppName}</p>
-      <h1 className="mt-2 font-display text-3xl font-semibold tracking-[-0.03em]">
+    <div className="flex min-h-full flex-col bg-white px-5 pb-8 pt-6">
+      <p className="text-sm font-semibold text-[var(--primary)]">{brand.mobileAppName}</p>
+      <h1 className="mt-2 text-[28px] font-bold tracking-[-0.03em]">
         Sign in with your phone
       </h1>
       <p className="mt-2 text-[15px] text-[var(--muted-foreground)]">
@@ -113,7 +113,7 @@ export default function LoginPage() {
           {step === "phone" ? (
             <Button
               size="lg"
-              className="h-12 w-full text-base active:scale-[0.98]"
+              className="h-12 w-full rounded-full text-base font-semibold active:scale-[0.98]"
               disabled={sending || phone.length < 10}
               onClick={sendCode}
             >
@@ -122,7 +122,7 @@ export default function LoginPage() {
           ) : (
             <Button
               size="lg"
-              className="h-12 w-full text-base active:scale-[0.98]"
+              className="h-12 w-full rounded-full text-base font-semibold active:scale-[0.98]"
               onClick={verifyOtp}
             >
               Verify & continue
@@ -136,7 +136,7 @@ export default function LoginPage() {
           </p>
           <Button
             size="lg"
-            className="h-12 w-full text-base active:scale-[0.98]"
+            className="h-12 w-full rounded-full text-base font-semibold active:scale-[0.98]"
             onClick={() => setAddressOpen(true)}
           >
             Choose address
@@ -144,7 +144,7 @@ export default function LoginPage() {
           <Button
             size="lg"
             variant="soft"
-            className="h-12 w-full text-base active:scale-[0.98]"
+            className="h-12 w-full rounded-full text-base font-semibold active:scale-[0.98]"
             onClick={finish}
           >
             Use {DEMO.addresses[0]?.label ?? "Home"} & start shopping

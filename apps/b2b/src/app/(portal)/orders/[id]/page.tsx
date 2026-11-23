@@ -227,7 +227,7 @@ export default function OrderDetailPage() {
             <Money amount={order.subtotal} />
           </div>
           <div className="text-right">
-            <p className="text-[var(--muted-foreground)]">HST</p>
+            <p className="text-[var(--muted-foreground)]">GST</p>
             <Money amount={order.taxAmount} />
           </div>
           <div className="text-right">

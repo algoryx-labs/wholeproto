@@ -45,15 +45,10 @@ export default function LoginPage() {
 
   return (
     <div className="grid min-h-screen lg:grid-cols-2">
-      <div className="relative hidden overflow-hidden bg-[linear-gradient(160deg,var(--primary)_0%,#0f3d2e_55%,#1a5c42_100%)] p-10 text-white lg:flex lg:flex-col lg:justify-between">
+      <div className="relative hidden overflow-hidden bg-[linear-gradient(160deg,#027BC2_0%,#0E8911_100%)] p-10 text-white lg:flex lg:flex-col lg:justify-between">
         <div className="flex items-center gap-4">
           <span className="rounded-[var(--radius-md)] bg-white p-2 shadow-[var(--shadow-pop)]">
-            <Logo
-              size="md"
-              src="/logo.png"
-              showWordmark={false}
-              wordmark={brand.adminAppName}
-            />
+            <Logo size="md" wordmark={brand.adminAppName} />
           </span>
           <span className="font-display text-xl font-semibold tracking-tight">
             {brand.adminAppName}
@@ -61,7 +56,7 @@ export default function LoginPage() {
         </div>
         <div className="space-y-4">
           <h1 className="font-display text-4xl font-semibold tracking-tight">
-            Control inventory across Ontario warehouses
+            Control inventory across Calgary warehouses
           </h1>
           <p className="max-w-md text-white/80">
             Demo console for stock matrices, transfers, B2B + app orders, and
@@ -69,7 +64,7 @@ export default function LoginPage() {
           </p>
         </div>
         <p className="text-sm text-white/60">
-          Mississauga · Brampton · Etobicoke · Hamilton
+          {brand.companyName} · Cash & Carry
         </p>
       </div>
 
@@ -77,7 +72,7 @@ export default function LoginPage() {
         <Card className="w-full max-w-md border-[var(--border)] shadow-[var(--shadow-card)]">
           <CardHeader>
             <div className="mb-2 lg:hidden">
-              <Logo size="sm" src="/logo.png" wordmark={brand.adminAppName} />
+              <Logo size="sm" showWordmark wordmark={brand.adminAppName} />
             </div>
             <CardTitle className="font-display text-2xl">Sign in</CardTitle>
             <CardDescription>

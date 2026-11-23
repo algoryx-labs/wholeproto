@@ -137,7 +137,7 @@ export function TopBar() {
               </p>
             </li>
             <li className="px-3 py-2.5">
-              <p className="font-medium">WW-B-10482 confirmed</p>
+              <p className="font-medium">CW-B-10482 confirmed</p>
               <p className="text-xs text-[var(--muted-foreground)]">
                 Lakeshore Fresh — awaiting pick
               </p>

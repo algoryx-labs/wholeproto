@@ -3,7 +3,7 @@ import { b2bCustomers, LAKESHORE_CUSTOMER_ID } from "./customers";
 import { daysAgo, HST_RATE, round2 } from "./helpers";
 import { products } from "./products";
 
-export const DEMO_B2B_ORDER_NUMBER = "WW-B-10482";
+export const DEMO_B2B_ORDER_NUMBER = "CW-B-10482";
 
 export function lineTotal(qty: number, unitPrice: number): number {
   return round2(qty * unitPrice);
@@ -28,52 +28,52 @@ export function statusHistory(
     at: new Date(
       new Date(createdAt).getTime() + idx * 1000 * 60 * 60 * 8,
     ).toISOString(),
-    by: idx === 0 ? undefined : "Warehouse Ops",
+    by: idx === 0 ? undefined : "Calgary Wholesale Ops",
   }));
 }
 
 export function buildDemoB2BOrder(): B2BOrder {
   const customer = b2bCustomers.find((c) => c.id === LAKESHORE_CUSTOMER_ID)!;
-  const honeycrisp = products.find((p) => p.sku === "WW-PRD-10231")!;
-  const milk = products.find((p) => p.sku === "WW-DRY-20101")!;
-  const rice = products.find((p) => p.sku === "WW-PTY-70101")!;
-  const chips = products.find((p) => p.sku === "WW-SNK-60101")!;
+  const tomatoes = products.find((p) => p.sku === "CW-PRD-3003")!;
+  const ghee = products.find((p) => p.sku === "CW-DRY-8805")!;
+  const atta = products.find((p) => p.sku === "CW-BKY-3227")!;
+  const kabab = products.find((p) => p.sku === "CW-MEA-4101")!;
 
   const draftLines: Omit<OrderLine, "lineTotal">[] = [
     {
       id: "ol-demo-1",
-      productId: honeycrisp.id,
-      sku: honeycrisp.sku,
-      name: honeycrisp.name,
+      productId: tomatoes.id,
+      sku: tomatoes.sku,
+      name: tomatoes.name,
       quantity: 10,
-      unitPrice: honeycrisp.tiers[1]?.pricePerCase ?? honeycrisp.b2bCasePrice,
+      unitPrice: tomatoes.tiers[1]?.pricePerCase ?? tomatoes.b2bCasePrice,
       uom: "case",
     },
     {
       id: "ol-demo-2",
-      productId: milk.id,
-      sku: milk.sku,
-      name: milk.name,
+      productId: ghee.id,
+      sku: ghee.sku,
+      name: ghee.name,
       quantity: 8,
-      unitPrice: milk.b2bCasePrice,
+      unitPrice: ghee.b2bCasePrice,
       uom: "case",
     },
     {
       id: "ol-demo-3",
-      productId: rice.id,
-      sku: rice.sku,
-      name: rice.name,
+      productId: atta.id,
+      sku: atta.sku,
+      name: atta.name,
       quantity: 6,
-      unitPrice: rice.b2bCasePrice,
+      unitPrice: atta.b2bCasePrice,
       uom: "case",
     },
     {
       id: "ol-demo-4",
-      productId: chips.id,
-      sku: chips.sku,
-      name: chips.name,
+      productId: kabab.id,
+      sku: kabab.sku,
+      name: kabab.name,
       quantity: 5,
-      unitPrice: chips.b2bCasePrice,
+      unitPrice: kabab.b2bCasePrice,
       uom: "case",
     },
   ];

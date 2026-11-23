@@ -76,7 +76,7 @@ export default function CheckoutPage() {
     setSubmitting(true);
     const seq = 10500 + Math.floor(Math.random() * 400);
     const id = `ord-b2b-local-${seq}`;
-    const number = `WW-B-${seq}`;
+    const number = `CW-B-${seq}`;
     const now = new Date().toISOString();
     const orderLines: OrderLine[] = lines.map((l, i) => ({
       id: `${id}-line-${i + 1}`,
@@ -127,7 +127,7 @@ export default function CheckoutPage() {
         { status: "pending_approval", at: now, by: user?.name },
         ...(needsApproval
           ? []
-          : [{ status: "confirmed", at: now, by: "Westwinds Ops" }]),
+          : [{ status: "confirmed", at: now, by: "Calgary Wholesale Ops" }]),
       ],
     };
 
@@ -340,7 +340,7 @@ export default function CheckoutPage() {
             </div>
             <div className="flex justify-between">
               <dt className="text-[var(--muted-foreground)]">
-                {brand.taxLabel} 13%
+                {brand.taxLabel} {Math.round(brand.taxRate * 100)}%
               </dt>
               <dd>
                 <Money amount={totals.taxAmount} />

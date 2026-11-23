@@ -1,53 +1,45 @@
 import * as React from "react";
-import { Leaf } from "lucide-react";
-import { cn } from "@westwinds/lib";
+import { brand, cn } from "@westwinds/lib";
 
 export interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: "sm" | "md" | "lg";
+  /** The logo artwork already contains the name, so text is opt-in. */
   showWordmark?: boolean;
   wordmark?: string;
   src?: string;
+  /** When true, render only the mark image (logo already includes text). */
+  markOnly?: boolean;
 }
 
 const sizeMap = {
-  sm: { mark: "h-6 w-6", icon: "h-3.5 w-3.5", image: "h-9", text: "text-sm" },
-  md: { mark: "h-8 w-8", icon: "h-4 w-4", image: "h-16", text: "text-base" },
-  lg: { mark: "h-10 w-10", icon: "h-5 w-5", image: "h-24", text: "text-xl" },
+  sm: { image: "h-9 max-w-[7.5rem]", text: "text-sm" },
+  md: { image: "h-14 max-w-[9.5rem]", text: "text-base" },
+  lg: { image: "h-20 max-w-[12rem]", text: "text-xl" },
 } as const;
 
 function Logo({
   className,
   size = "md",
-  showWordmark = true,
-  wordmark = "Westwinds",
-  src,
+  showWordmark = false,
+  wordmark = brand.shortName,
+  src = brand.logoSrc,
+  markOnly = false,
   ...props
 }: LogoProps) {
   const s = sizeMap[size];
+  const withText = showWordmark && !markOnly;
   return (
     <div
       className={cn("inline-flex items-center gap-2", className)}
       {...props}
     >
-      {src ? (
-        <img
-          src={src}
-          alt={showWordmark ? "" : wordmark}
-          aria-hidden={showWordmark || undefined}
-          className={cn("w-auto object-contain", s.image)}
-        />
-      ) : (
-        <span
-          className={cn(
-            "inline-flex items-center justify-center rounded-[var(--radius-sm)] bg-[var(--primary)] text-[var(--primary-foreground)]",
-            s.mark,
-          )}
-          aria-hidden
-        >
-          <Leaf className={s.icon} strokeWidth={2.25} />
-        </span>
-      )}
-      {showWordmark ? (
+      <img
+        src={src}
+        alt={withText ? "" : wordmark}
+        aria-hidden={withText || undefined}
+        className={cn("w-auto shrink-0 object-contain", s.image)}
+      />
+      {withText ? (
         <span
           className={cn(
             "font-display font-semibold tracking-tight text-[var(--foreground)]",

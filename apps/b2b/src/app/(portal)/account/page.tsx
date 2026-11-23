@@ -57,7 +57,7 @@ export default function AccountPage() {
                 <Input readOnly value={role} />
               </div>
               <div className="space-y-2">
-                <Label>HST number</Label>
+                <Label>GST / BN</Label>
                 <Input readOnly value={customer.hstNumber} />
               </div>
             </div>

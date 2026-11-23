@@ -119,6 +119,7 @@ export { Money, Qty, type MoneyProps, type QtyProps } from "./composites/money";
 export {
   ProductImage,
   CATEGORY_TINTS,
+  SPOTLIGHT_TINTS,
   type ProductImageProps,
 } from "./composites/product-image";
 export { EmptyState, type EmptyStateProps } from "./composites/empty-state";

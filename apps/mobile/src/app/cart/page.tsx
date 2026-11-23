@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { calcCartTotals } from "@/lib/cart-math";
 import { FREE_DELIVERY_MIN } from "@/lib/constants";
 import { cartLineAmount, useCartStore } from "@/stores/cart";
+import { useCheckoutStore } from "@/stores/checkout";
 import { ScreenDock } from "@/components/screen-dock";
 
 export default function CartPage() {
@@ -21,6 +22,7 @@ export default function CartPage() {
   const removeItem = useCartStore((s) => s.removeItem);
   const applyPromo = useCartStore((s) => s.applyPromo);
   const clearPromo = useCartStore((s) => s.clearPromo);
+  const setCheckoutStep = useCheckoutStore((s) => s.setStep);
   const [code, setCode] = React.useState(promoCode ?? "");
   const totals = calcCartTotals(lines, promoCode);
 
@@ -58,14 +60,12 @@ export default function CartPage() {
         <button
           type="button"
           onClick={() => router.back()}
-          className="flex size-11 items-center justify-center rounded-full bg-[var(--surface)] active:scale-[0.98]"
+          className="flex size-10 items-center justify-center rounded-full border border-[var(--border)] bg-white active:scale-[0.98]"
           aria-label="Back"
         >
           <ChevronLeft className="size-5" />
         </button>
-        <h1 className="font-display text-2xl font-semibold tracking-[-0.03em]">
-          Cart
-        </h1>
+        <h1 className="text-[22px] font-bold tracking-[-0.03em]">Cart</h1>
       </div>
 
       <ul className="space-y-3">
@@ -179,8 +179,11 @@ export default function CartPage() {
         <div className="border-t border-[var(--border)] bg-[var(--surface)]/95 px-4 pb-6 pt-3 backdrop-blur-md">
           <Button
             size="lg"
-            className="h-12 w-full text-base active:scale-[0.98]"
-            onClick={() => router.push("/checkout")}
+            className="h-12 w-full rounded-full text-base font-semibold active:scale-[0.98]"
+            onClick={() => {
+              setCheckoutStep("address");
+              router.push("/checkout");
+            }}
           >
             Proceed to checkout
           </Button>

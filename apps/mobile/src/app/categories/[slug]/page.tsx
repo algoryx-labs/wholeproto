@@ -33,30 +33,42 @@ export default function CategoryDetailPage() {
   );
 
   return (
-    <div className="space-y-4 px-4 pb-4 pt-2">
+    <div className="space-y-4 bg-white px-4 pb-4 pt-2">
       <div className="flex items-center gap-2">
         <Link
           href="/categories"
-          className="flex size-11 items-center justify-center rounded-full bg-[var(--surface)] active:scale-[0.98]"
+          className="flex size-10 items-center justify-center rounded-full border border-[var(--border)] bg-white active:scale-[0.98]"
           aria-label="Back"
         >
           <ChevronLeft className="size-5" />
         </Link>
-        <h1 className="font-display text-2xl font-semibold tracking-[-0.03em]">
-          {category?.name ?? "Category"}
-        </h1>
+        <div className="min-w-0">
+          <h1 className="truncate text-[20px] font-bold tracking-[-0.03em]">
+            {category?.name ?? "Category"}
+          </h1>
+          {category ? (
+            <p className="truncate text-xs text-[var(--muted-foreground)]">
+              {category.description}
+            </p>
+          ) : null}
+        </div>
       </div>
 
       {productsQ.isLoading || catsQ.isLoading ? (
-        <div className="grid grid-cols-2 gap-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <Skeleton key={i} className="h-56 rounded-[var(--radius-lg)]" />
+        <div className="grid grid-cols-3 gap-2.5">
+          {Array.from({ length: 9 }).map((_, i) => (
+            <Skeleton key={i} className="h-48 rounded-[var(--radius-md)]" />
           ))}
         </div>
+      ) : (productsQ.data ?? []).length === 0 ? (
+        <p className="py-12 text-center text-sm text-[var(--muted-foreground)]">
+          No products in this category yet.
+        </p>
       ) : (
         <ProductGrid
           products={productsQ.data ?? []}
           categoryById={catNameById}
+          columns={3}
         />
       )}
     </div>

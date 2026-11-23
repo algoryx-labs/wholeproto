@@ -1,21 +1,22 @@
 import { p } from "./product-compact";
 import type { ProductSeed } from "./product-builder";
 
+/** Flour, baking, and meat items from wholesalecalgary.ca */
 export const productSeedsBakeryMeat: ProductSeed[] = [
-  p("WW-BKY-30101", "Sourdough loaf 675 g", "Hearth & Grain", "cat-bakery", "675 g loaf", "8 loaves", 8, 5.49, null, 32, 20, 24, ["bakery", "artisan"], "Naturally leavened sourdough with a crisp crust.", "sourdough-loaf"),
-  p("WW-BKY-30102", "Whole wheat sandwich loaf", "Hearth & Grain", "cat-bakery", "675 g", "12 loaves", 12, 3.99, null, 36, 22.5, 30, ["bakery", "staple"], "Soft whole wheat sandwich bread.", "wheat-loaf"),
-  p("WW-BKY-30103", "Flour tortillas 10-inch", "Casa Norte", "cat-bakery", "10-pack", "12 × 10-pack", 12, 4.29, null, 38.4, 24, 28, ["bakery"], "Soft flour tortillas for retail and QSR.", "flour-tortillas"),
-  p("WW-BKY-30104", "Croissants butter", "Hearth & Grain", "cat-bakery", "4-pack", "10 × 4-pack", 10, 5.99, null, 42, 26, 18, ["bakery", "frozen-parbake"], "All-butter croissants, ready to finish.", "croissants"),
-  p("WW-BKY-30105", "Bagels plain", "Harbour Bakehouse", "cat-bakery", "6-pack", "8 × 6-pack", 8, 4.49, null, 26.4, 16.5, 22, ["bakery"], "Boiled-and-baked plain bagels.", "bagels-plain"),
-  p("WW-BKY-30106", "Dinner rolls", "Hearth & Grain", "cat-bakery", "12-pack", "10 × 12-pack", 10, 3.79, null, 28, 17, 20, ["bakery"], "Soft white dinner rolls.", "dinner-rolls"),
-  p("WW-BKY-30107", "Naan garlic", "Tandoor Lane", "cat-bakery", "4-pack", "12 × 4-pack", 12, 4.99, null, 42, 26.5, 18, ["bakery"], "Garlic naan for retail freezer or chilled.", "naan-garlic"),
-  p("WW-BKY-30108", "English muffins", "Harbour Bakehouse", "cat-bakery", "6-pack", "12 × 6-pack", 12, 3.49, null, 31.2, 19, 24, ["bakery", "staple"], "Fork-split English muffins.", "english-muffins"),
-  p("WW-MEA-40101", "Chicken breast boneless", "Prairie Protein", "cat-meat", "Tray ~1 kg", "10 × 1 kg", 10, 14.99, null, 112, 78, 25, ["chilled", "protein"], "Boneless skinless chicken breast trays.", "chicken-breast"),
-  p("WW-MEA-40102", "Ground beef lean 500 g", "Prairie Protein", "cat-meat", "500 g", "20 × 500 g", 20, 7.99, null, 120, 84, 30, ["chilled", "protein"], "Lean ground beef family packs.", "ground-beef"),
-  p("WW-MEA-40103", "Atlantic salmon fillet", "North Shore Seafood", "cat-meat", "~400 g", "10 × 400 g", 10, 16.99, 18.99, 128, 90, 16, ["chilled", "seafood"], "Fresh Atlantic salmon fillets.", "salmon-fillet"),
-  p("WW-MEA-40104", "Pork chops bone-in", "Prairie Protein", "cat-meat", "Tray ~800 g", "8 × 800 g", 8, 9.99, null, 60, 42, 18, ["chilled", "protein"], "Bone-in pork chops for retail meat cases.", "pork-chops"),
-  p("WW-MEA-40105", "Bacon thick cut 500 g", "Smokehouse Co", "cat-meat", "500 g", "12 × 500 g", 12, 8.49, null, 76.8, 52, 22, ["chilled"], "Thick-cut smoked bacon.", "bacon"),
-  p("WW-MEA-40106", "Shrimp raw 31/40", "North Shore Seafood", "cat-meat", "454 g bag", "10 × 454 g", 10, 12.99, null, 95, 66, 15, ["frozen", "seafood"], "Peeled raw shrimp, 31/40 count.", "shrimp"),
-  p("WW-MEA-40107", "Turkey breast deli roast", "Smokehouse Co", "cat-meat", "~2 kg log", "4 × 2 kg", 4, 24.99, null, 78, 54, 12, ["chilled", "deli"], "Oven-roasted turkey breast for deli slicing.", "turkey-breast"),
-  p("WW-MEA-40108", "Italian sausage mild", "Prairie Protein", "cat-meat", "500 g", "12 × 500 g", 12, 6.99, null, 62.4, 42, 20, ["chilled"], "Mild Italian pork sausage links.", "italian-sausage"),
+  p("CW-BKY-3227", "Heer Atta 20lb", "Heer", "cat-dairy", "20 lb bag", "1 × 20 lb", 1, 18.99, null, 18.99, 12, 24, ["flour", "staple", "featured"], "Whole wheat atta for rotis — 20 lb bag.", "heer-atta-20lb"),
+  p("CW-BKY-3228", "Sher Atta Desi Style 20lb", "Sher", "cat-dairy", "20 lb bag", "1 × 20 lb", 1, 19.49, null, 19.49, 12.5, 20, ["flour", "staple"], "Desi-style atta milled for soft rotis and parathas.", "sher-atta-20lb"),
+  p("CW-BKY-3229", "Golden Temple Atta 20lb", "Golden Temple", "cat-dairy", "20 lb bag", "1 × 20 lb", 1, 19.99, null, 19.99, 13, 20, ["flour"], "Golden Temple whole wheat atta, 20 lb.", "golden-temple-atta"),
+  p("CW-BKY-3230", "Aashirvaad Wholewheat Atta 20lb", "Aashirvaad", "cat-dairy", "20 lb bag", "1 × 20 lb", 1, 21.99, null, 21.99, 14.5, 18, ["flour"], "Aashirvaad whole wheat atta in a 20 lb bag.", "aashirvaad-atta"),
+  p("CW-BKY-3231", "ADM Baker Roses Flour 20kg", "ADM", "cat-dairy", "20 kg", "1 × 20 kg", 1, 28.99, null, 28.99, 18, 16, ["flour", "baking"], "Baker’s flour for commercial baking — 20 kg.", "adm-baker-flour"),
+  p("CW-BKY-3232", "Corn Flour / Makki Da Atta 20lb", "Heer", "cat-dairy", "20 lb", "1 × 20 lb", 1, 22.99, null, 22.99, 14, 14, ["flour", "south-asian"], "Makki da atta (corn flour) for rotis — 20 lb.", "corn-flour-20lb"),
+  p("CW-BKY-3233", "Heer Besan Fine 40lb", "Heer", "cat-dairy", "40 lb", "1 × 40 lb", 1, 48.99, null, 48.99, 32, 12, ["flour", "besan"], "Fine chickpea flour (besan) in a 40 lb bag.", "heer-besan-fine"),
+  p("CW-BKY-3234", "Riwayat Cornstarch 25kg", "Riwayat", "cat-dairy", "25 kg", "1 × 25 kg", 1, 42.99, null, 42.99, 28, 12, ["baking"], "Foodservice cornstarch — 25 kg sack.", "riwayat-cornstarch"),
+  p("CW-BKY-3235", "Riwayat Urad Flour 5lb", "Riwayat", "cat-dairy", "5 lb / 2.27 kg", "4 × 5 lb", 4, 12.99, null, 44, 28, 14, ["flour", "south-asian"], "Urad flour for dosas, vadas, and papad.", "urad-flour"),
+  p("CW-BKY-3236", "Baking Powder 5kg", "Pinnacle", "cat-dairy", "5 kg", "4 × 5 kg", 4, 16.99, null, 58, 36, 16, ["baking"], "Commercial baking powder — 5 kg.", "baking-powder-5kg"),
+  p("CW-BKY-3237", "Yeast Instant 500g", "Pinnacle", "cat-dairy", "500 g", "20 × 500 g", 20, 6.49, null, 98, 62, 18, ["baking"], "Instant dry yeast for bakery and naan.", "yeast-instant"),
+  p("CW-BKY-3238", "Breadcrumbs 50lbs", "Breaders", "cat-dairy", "50 lb", "1 × 50 lb", 1, 54.99, null, 54.99, 36, 10, ["baking", "coating"], "Dry breadcrumbs for coating and stuffing — 50 lb.", "breadcrumbs-50lb"),
+  p("CW-MEA-4101", "Harabhara Kabab 600g×10", "Nanak", "cat-dairy", "600 g × 10", "10 × 600 g", 10, 64.99, 72.99, 64.99, 42, 14, ["frozen", "featured", "veg-protein"], "Frozen hara bhara kababs — 10 × 600 g case.", "harabhara-kabab"),
+  p("CW-MEA-4102", "Nanak Aloo Tikki 720g×10", "Nanak", "cat-dairy", "720 g × 10", "10 × 720 g", 10, 58.99, null, 58.99, 38, 14, ["frozen", "veg-protein"], "Frozen aloo tikki — 10 × 720 g case.", "aloo-tikki"),
+  p("CW-MEA-4103", "Y & Y Noodle 454g×12", "Y & Y", "cat-dairy", "454 g × 12", "12 × 454 g", 12, 36.99, null, 36.99, 22, 16, ["frozen", "noodles"], "Frozen noodles for Indo-Chinese and stir-fry — 12 packs.", "yy-noodle"),
+  p("CW-MEA-4104", "Frozen Drumsticks 340g×24", "Surati", "cat-dairy", "340 g × 24", "24 × 340 g", 24, 72.99, null, 72.99, 48, 12, ["frozen", "veg"], "Frozen drumstick (moringa) packs — 24 × 340 g.", "frozen-drumsticks"),
 ];

@@ -1,4 +1,8 @@
-/** Local product artwork served from `apps/mobile/public/products/{sku}.svg`. */
+import manifest from "./product-image-manifest.json";
+
+const imageBySku = manifest as Record<string, string>;
+
+/** Product artwork from Wholesale Calgary catalog photos (local `/products/{sku}.webp`). */
 export function productImageSrc(sku: string): string {
-  return `/products/${sku}.svg`;
+  return imageBySku[sku] ?? `/products/${sku}.webp`;
 }

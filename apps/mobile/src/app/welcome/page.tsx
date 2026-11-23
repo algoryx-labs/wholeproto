@@ -8,19 +8,19 @@ import { Button, Logo } from "@westwinds/ui";
 
 const SLIDES = [
   {
-    title: "Fresh from Ontario warehouses",
+    title: "Fresh from Calgary warehouses",
     body: "Produce, dairy, and pantry staples scheduled around your day — not the other way around.",
-    tint: "#DDF0D5",
+    image: "/assets/Bg1.jpg",
   },
   {
-    title: "Same stock, neighbour delivery",
-    body: "Westwinds runs the warehouses behind your favourite grocers. Now they deliver to your door.",
-    tint: "#E6EEF9",
+    title: "Disposables ready in bulk",
+    body: "Cups, containers, cutlery, and bags — everything your kitchen needs, delivered.",
+    image: "/assets/bg2.jpg",
   },
   {
     title: "Slots that actually show up",
     body: "Pick a delivery window, track the van live, and reorder favourites in two taps.",
-    tint: "#FDF1DC",
+    image: "/assets/Bg1.jpg",
   },
 ];
 
@@ -39,12 +39,12 @@ export default function WelcomePage() {
   }, [embla]);
 
   return (
-    <div className="flex min-h-[calc(100%-0px)] flex-col px-5 pb-6 pt-4">
+    <div className="flex min-h-[calc(100%-0px)] flex-col bg-white px-5 pb-6 pt-4">
       <div className="flex items-center justify-between">
         <Logo size="sm" />
         <Link
           href="/login"
-          className="text-sm font-medium text-[var(--primary)] active:scale-[0.98]"
+          className="text-sm font-semibold text-[var(--primary)] active:scale-[0.98]"
         >
           Skip
         </Link>
@@ -54,15 +54,23 @@ export default function WelcomePage() {
         <div className="flex h-full">
           {SLIDES.map((s) => (
             <div key={s.title} className="min-w-0 shrink-0 grow-0 basis-full">
-              <div
-                className="mb-6 flex h-56 items-end rounded-[var(--radius-lg)] p-5"
-                style={{ backgroundColor: s.tint }}
-              >
-                <p className="font-display text-2xl font-semibold tracking-[-0.03em] text-[var(--foreground)]">
-                  {brand.mobileAppName}
-                </p>
+              <div className="relative mb-6 h-56 overflow-hidden rounded-[var(--radius-lg)] shadow-[var(--shadow-card)] ring-1 ring-black/5">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={s.image}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover object-center"
+                />
+                <div className="absolute left-3 top-3 overflow-hidden rounded-[var(--radius-sm)] bg-black/90 shadow-sm">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={brand.logoSrc}
+                    alt={brand.mobileAppName}
+                    className="h-10 w-auto object-contain"
+                  />
+                </div>
               </div>
-              <h1 className="font-display text-[1.75rem] font-semibold leading-tight tracking-[-0.03em]">
+              <h1 className="text-[1.75rem] font-bold leading-tight tracking-[-0.03em]">
                 {s.title}
               </h1>
               <p className="mt-3 text-[15px] leading-relaxed text-[var(--muted-foreground)]">
@@ -94,13 +102,17 @@ export default function WelcomePage() {
         {index < SLIDES.length - 1 ? (
           <Button
             size="lg"
-            className="h-12 w-full text-base active:scale-[0.98]"
+            className="h-12 w-full rounded-full text-base font-semibold active:scale-[0.98]"
             onClick={() => embla?.scrollNext()}
           >
             Continue
           </Button>
         ) : (
-          <Button asChild size="lg" className="h-12 w-full text-base active:scale-[0.98]">
+          <Button
+            asChild
+            size="lg"
+            className="h-12 w-full rounded-full text-base font-semibold active:scale-[0.98]"
+          >
             <Link href="/login">Get started</Link>
           </Button>
         )}

@@ -106,7 +106,7 @@ export default function InvoiceDetailPage() {
               {billTo.city}, {billTo.province} {billTo.postalCode}
             </dd>
             <dd className="pt-2 text-[var(--muted-foreground)]">
-              Account {customer.accountNumber} · HST {customer.hstNumber}
+              Account {customer.accountNumber} · GST/BN {customer.hstNumber}
             </dd>
           </dl>
         </SectionCard>

@@ -232,7 +232,7 @@ export default function QuickOrderPage() {
           <SectionCard title="Paste SKU, qty">
             <Textarea
               rows={5}
-              placeholder={"WW-PRD-10231, 10\nWW-DRY-20101, 8"}
+              placeholder={"CW-PRD-3003, 10\nCW-DRY-8805, 8"}
               value={paste}
               onChange={(e) => setPaste(e.target.value)}
             />

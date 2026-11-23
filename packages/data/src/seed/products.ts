@@ -26,5 +26,6 @@ export const productBySku = Object.fromEntries(
   products.map((p) => [p.sku, p]),
 ) as Record<string, Product>;
 
-export const HONEYCRISP_SKU = "WW-PRD-10231";
+/** Featured / demo SKU — Roma tomatoes (homepage popular produce). */
+export const HONEYCRISP_SKU = "CW-PRD-3003";
 export const honeycrispProduct = productBySku[HONEYCRISP_SKU]!;

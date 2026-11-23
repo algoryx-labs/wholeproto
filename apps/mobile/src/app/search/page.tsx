@@ -8,7 +8,7 @@ import { getCategories, getProducts } from "@westwinds/data";
 import { Input, Skeleton } from "@westwinds/ui";
 import { ProductGrid } from "@/components/product-card";
 
-const POPULAR = ["Honeycrisp", "Milk", "Eggs", "Avocado", "Bread", "Yogurt"];
+const POPULAR = ["Cups", "Bags", "Napkins", "Cutlery", "Clamshell", "Gloves"];
 const RECENT_KEY = "ww-mobile:recent-searches";
 
 function useDebounced(value: string, ms = 280) {
@@ -63,17 +63,17 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="space-y-4 px-4 pb-4 pt-2">
+    <div className="space-y-4 bg-white px-4 pb-4 pt-2">
       <div className="flex items-center gap-2">
         <Link
           href="/"
-          className="flex size-11 items-center justify-center rounded-full bg-[var(--surface)] active:scale-[0.98]"
+          className="flex size-10 items-center justify-center rounded-full border border-[var(--border)] bg-white active:scale-[0.98]"
           aria-label="Back"
         >
           <ChevronLeft className="size-5" />
         </Link>
         <div className="relative flex-1">
-          <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[var(--muted-foreground)]" />
+          <Search className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-[var(--foreground)]" />
           <Input
             ref={inputRef}
             value={q}
@@ -81,8 +81,8 @@ export default function SearchPage() {
             onKeyDown={(e) => {
               if (e.key === "Enter" && q.trim()) commitSearch(q.trim());
             }}
-            placeholder="Search products"
-            className="h-12 pl-10 pr-10 text-base"
+            placeholder="Search for bags, cups, boxes and more"
+            className="h-11 rounded-full border-[var(--border)] pl-10 pr-10 text-[14px] shadow-none"
           />
           {q ? (
             <button
@@ -110,7 +110,7 @@ export default function SearchPage() {
                     key={r}
                     type="button"
                     onClick={() => commitSearch(r)}
-                    className="h-10 rounded-full bg-[var(--surface)] px-4 text-sm active:scale-[0.98]"
+                    className="h-9 rounded-full border border-[var(--border)] bg-white px-4 text-sm active:scale-[0.98]"
                   >
                     {r}
                   </button>
@@ -128,7 +128,7 @@ export default function SearchPage() {
                   key={r}
                   type="button"
                   onClick={() => commitSearch(r)}
-                  className="h-10 rounded-full bg-[var(--primary-soft)] px-4 text-sm font-medium text-[var(--primary)] active:scale-[0.98]"
+                  className="h-9 rounded-full bg-[var(--primary-soft)] px-4 text-sm font-medium text-[var(--primary)] active:scale-[0.98]"
                 >
                   {r}
                 </button>
@@ -137,9 +137,9 @@ export default function SearchPage() {
           </section>
         </div>
       ) : resultsQ.isLoading ? (
-        <div className="grid grid-cols-2 gap-3">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <Skeleton key={i} className="h-56 rounded-[var(--radius-lg)]" />
+        <div className="grid grid-cols-3 gap-2.5">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <Skeleton key={i} className="h-48 rounded-[var(--radius-md)]" />
           ))}
         </div>
       ) : (resultsQ.data ?? []).length === 0 ? (
@@ -150,6 +150,7 @@ export default function SearchPage() {
         <ProductGrid
           products={resultsQ.data ?? []}
           categoryById={catNameById}
+          columns={3}
         />
       )}
     </div>

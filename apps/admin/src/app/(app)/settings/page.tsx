@@ -8,7 +8,7 @@ export default function SettingsPage() {
     <StubPage
       title="Settings"
       description="Company profile, tax, and notification preferences."
-      message="Company settings are out of scope for this frontend prototype. Currency is CAD with 13% HST."
+      message="Company settings are out of scope for this frontend prototype. Currency is CAD with 5% GST."
       icon={Settings}
     />
   );

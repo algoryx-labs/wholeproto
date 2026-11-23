@@ -97,7 +97,7 @@ export default function CatalogPage() {
     <div className="space-y-5">
       <PageHeader
         title="Catalog"
-        description="Case pricing with live warehouse availability across Ontario."
+        description="Case pricing with live warehouse availability across Calgary."
         actions={
           <div className="flex gap-1 rounded-[var(--radius-sm)] border border-[var(--border)] p-0.5">
             <Button

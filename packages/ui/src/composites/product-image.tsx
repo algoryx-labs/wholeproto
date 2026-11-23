@@ -2,44 +2,58 @@
 
 import * as React from "react";
 import {
-  Apple,
-  Beef,
+  Briefcase,
   Cookie,
-  Droplets,
+  CupSoda,
+  HandPlatter,
   Package,
-  Snowflake,
-  SprayCan,
-  Wheat,
-  Wine,
-  Milk,
+  ScrollText,
+  ShoppingBag,
+  SquareStack,
+  Utensils,
+  WrapText,
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@westwinds/lib";
 
 export const CATEGORY_TINTS: Record<string, string> = {
-  Produce: "#DDF0D5",
-  "Dairy & Eggs": "#E6EEF9",
-  Bakery: "#F6E8D4",
-  "Meat & Seafood": "#F8E1DF",
-  Beverages: "#DDEEF0",
-  Snacks: "#FBEBD0",
-  Pantry: "#EFE8DB",
-  Frozen: "#E3ECF7",
-  Household: "#ECE8F4",
-  "Personal Care": "#F4E4EC",
+  "Large Bags": "#E8F5EC",
+  "Pastries, Desserts & Mixes": "#FFF0E8",
+  "Single-Use Cutlery": "#EEF3FF",
+  "Tableware & Dinnerware": "#F3EAF8",
+  "Beverage Packaging & Cups": "#E5F6FB",
+  "Food Prep Wraps & Films": "#FFF6DE",
+  "Packaging & Operations": "#F0F2F5",
+  "Commercial Napkins": "#EAF8F1",
+  "Takeout & Catering Boxes": "#FFEDE5",
+  "Workwear & Protective Gear": "#E8EEFF",
+  // Fallbacks for any lingering labels
+  Pantry: "#F0F2F5",
+  Household: "#EAF8F1",
 };
 
+export const SPOTLIGHT_TINTS = [
+  "#D9F0FF",
+  "#DFF5E4",
+  "#EDE4FF",
+  "#FFE8D6",
+  "#FFF3C9",
+  "#D9F5F0",
+  "#FFE0EA",
+  "#E4ECFF",
+] as const;
+
 const CATEGORY_ICONS: Record<string, LucideIcon> = {
-  Produce: Apple,
-  "Dairy & Eggs": Milk,
-  Bakery: Wheat,
-  "Meat & Seafood": Beef,
-  Beverages: Wine,
-  Snacks: Cookie,
-  Pantry: Package,
-  Frozen: Snowflake,
-  Household: SprayCan,
-  "Personal Care": Droplets,
+  "Large Bags": ShoppingBag,
+  "Pastries, Desserts & Mixes": Cookie,
+  "Single-Use Cutlery": Utensils,
+  "Tableware & Dinnerware": HandPlatter,
+  "Beverage Packaging & Cups": CupSoda,
+  "Food Prep Wraps & Films": WrapText,
+  "Packaging & Operations": Package,
+  "Commercial Napkins": ScrollText,
+  "Takeout & Catering Boxes": SquareStack,
+  "Workwear & Protective Gear": Briefcase,
 };
 
 export interface ProductImageProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -65,7 +79,7 @@ const iconSizes = {
 function ProductImage({
   src,
   alt,
-  category = "Pantry",
+  category = "Packaging & Operations",
   name,
   size = "md",
   className,
@@ -73,7 +87,8 @@ function ProductImage({
   ...props
 }: ProductImageProps) {
   const [failed, setFailed] = React.useState(false);
-  const tint = CATEGORY_TINTS[category] ?? CATEGORY_TINTS.Pantry;
+  const tint =
+    CATEGORY_TINTS[category] ?? CATEGORY_TINTS["Packaging & Operations"];
   const Icon = CATEGORY_ICONS[category] ?? Package;
   const initial = (name ?? category).charAt(0).toUpperCase();
   const showImage = Boolean(src) && !failed;
@@ -86,17 +101,23 @@ function ProductImage({
     return (
       <div
         className={cn(
-          "relative shrink-0 overflow-hidden rounded-[var(--radius-sm)] bg-[var(--surface-sunken)]",
+          "relative shrink-0 overflow-hidden rounded-[var(--radius-sm)]",
           sizeClasses[size],
           className,
         )}
-        style={style}
+        style={{ backgroundColor: "#ffffff", ...style }}
         {...props}
       >
+        <div
+          className="pointer-events-none absolute inset-0 opacity-40"
+          style={{ backgroundColor: tint }}
+          aria-hidden
+        />
         <img
           src={src!}
           alt={alt ?? name ?? category}
-          className="h-full w-full object-cover"
+          className="relative h-full w-full object-contain p-2"
+          loading="lazy"
           onError={() => setFailed(true)}
         />
       </div>

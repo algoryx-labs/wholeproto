@@ -95,7 +95,7 @@ export default function B2BCustomerDetailPage() {
               },
               {
                 key: "hst",
-                label: "HST number",
+                label: "GST / BN",
                 value: customer.hstNumber,
               },
               {

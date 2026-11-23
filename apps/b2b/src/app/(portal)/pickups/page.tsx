@@ -76,7 +76,7 @@ export default function PickupsPage() {
         description={
           readyCount
             ? `${readyCount} order${readyCount === 1 ? " is" : "s are"} packed and ready to collect.`
-            : "Collect Trade orders from any Westwinds warehouse. Choose Pickup at checkout to book a slot."
+            : "Collect Trade orders from any Calgary Wholesale warehouse. Choose Pickup at checkout to book a slot."
         }
         actions={
           <Button asChild>

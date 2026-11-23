@@ -67,7 +67,7 @@ function buildTransfers(): Transfer[] {
       requestedBy: requesters[n % requesters.length]!,
       notes:
         isDemo
-          ? "Replenish Mississauga Honeycrisp and produce shorts"
+          ? "Replenish Calgary Roma tomatoes and produce shorts"
           : n % 5 === 0
             ? "Weekly balancing transfer"
             : undefined,

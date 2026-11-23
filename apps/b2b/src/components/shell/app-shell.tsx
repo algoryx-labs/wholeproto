@@ -50,7 +50,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--surface)]/95 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-[1400px] items-center gap-4 px-4 lg:px-6">
           <Link href="/" className="shrink-0">
-            <Logo size="sm" src="/logo.png" wordmark={brand.b2bAppName} />
+            <Logo size="sm" showWordmark wordmark={brand.b2bAppName} />
           </Link>
 
           <nav className="hidden items-center gap-0.5 md:flex">

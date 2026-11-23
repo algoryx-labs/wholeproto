@@ -124,6 +124,8 @@ export interface Banner {
   ctaHref: string;
   tintColour: string;
   imageHint: string;
+  /** Optional public asset path for photo hero banners. */
+  imageSrc?: string;
   sortOrder: number;
   active: boolean;
 }

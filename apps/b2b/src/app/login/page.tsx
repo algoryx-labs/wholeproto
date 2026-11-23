@@ -43,8 +43,6 @@ function LoginForm() {
       <CardHeader className="space-y-3">
         <Logo
           size="lg"
-          src="/logo.png"
-          showWordmark={false}
           wordmark={brand.b2bAppName}
           className="self-center"
         />

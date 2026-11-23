@@ -4,7 +4,8 @@ import { Faker, en, en_CA } from "@faker-js/faker";
 export const faker = new Faker({ locale: [en_CA, en] });
 faker.seed(2026);
 
-export const HST_RATE = 0.13;
+/** Alberta GST (kept as HST_RATE for API compatibility). */
+export const HST_RATE = 0.05;
 
 export const DEMO_ANCHOR = new Date("2026-09-17T12:00:00.000Z");
 
