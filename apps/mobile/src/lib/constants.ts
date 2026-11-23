@@ -1,0 +1,17 @@
+export const SCREEN_W = 390;
+export const SCREEN_H = 844;
+export const BEZEL = 12;
+export const OUTER_RADIUS = 56;
+export const SCREEN_RADIUS = 44;
+export const STATUS_BAR_H = 54;
+export const HOME_INDICATOR_H = 34;
+export const TAB_BAR_H = 64;
+export const FREE_DELIVERY_MIN = 75;
+export const DELIVERY_FEE = 5.99;
+export const PROMO_CODE = "FRESH10";
+export const PROMO_PCT = 0.1;
+export const SESSION_KEY = "ww-mobile:session";
+export const CART_KEY = "ww-mobile:cart";
+export const CHECKOUT_KEY = "ww-mobile:checkout";
+export const FRAME_BREAKPOINT = 500;
+export const FRAME_SCALE_VH = 900;

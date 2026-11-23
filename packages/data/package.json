@@ -1,0 +1,22 @@
+{
+  "name": "@westwinds/data",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.6.0",
+    "@westwinds/lib": "workspace:*"
+  },
+  "devDependencies": {
+    "@westwinds/eslint-config": "workspace:*",
+    "@westwinds/typescript-config": "workspace:*",
+    "typescript": "^5.8.3"
+  }
+}
