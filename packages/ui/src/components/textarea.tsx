@@ -8,6 +8,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {
     return (
       <textarea
+        data-slot="textarea"
         className={cn(
           "flex min-h-[80px] w-full rounded-[var(--radius-sm)] border border-[var(--border-strong)] bg-[var(--surface)] px-3 py-2 text-sm text-[var(--foreground)]",
           "placeholder:text-[var(--subtle-foreground)]",

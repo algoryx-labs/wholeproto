@@ -60,6 +60,7 @@ const TableRow = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tr
     ref={ref}
+    data-slot="table-row"
     className={cn(
       "border-b border-[var(--border)] transition-colors hover:bg-[var(--surface-sunken)]/60 data-[state=selected]:bg-[var(--primary-soft)]",
       className,

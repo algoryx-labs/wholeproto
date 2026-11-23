@@ -7,6 +7,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type = "text", ...props }, ref) => {
     return (
       <input
+        data-slot="input"
         type={type}
         className={cn(
           "flex h-9 w-full rounded-[var(--radius-sm)] border border-[var(--border-strong)] bg-[var(--surface)] px-3 py-1 text-sm text-[var(--foreground)] shadow-none transition-colors",

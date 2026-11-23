@@ -26,7 +26,7 @@ import { useCartStore } from "@/stores/cart-store";
 import { AccountSwitcher } from "./account-switcher";
 import { CreditStrip } from "./credit-strip";
 import { ProductSearchDialog } from "./product-search-dialog";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const NAV = [
   { href: "/catalog", label: "Catalog", icon: LayoutGrid },
@@ -44,6 +44,17 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const itemCount = lines.reduce((sum, l) => sum + l.qty, 0);
   const subtotal = lines.reduce((sum, l) => sum + l.qty * l.unitPrice, 0);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [cartBump, setCartBump] = useState(false);
+  const prevCount = useRef(itemCount);
+
+  useEffect(() => {
+    const grew = itemCount > prevCount.current;
+    prevCount.current = itemCount;
+    if (!grew) return;
+    setCartBump(true);
+    const t = window.setTimeout(() => setCartBump(false), 600);
+    return () => window.clearTimeout(t);
+  }, [itemCount]);
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
@@ -61,8 +72,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 <Link
                   key={item.href}
                   href={item.href}
+                  data-active={active || undefined}
                   className={cn(
-                    "inline-flex items-center gap-1.5 rounded-[var(--radius-sm)] px-2.5 py-1.5 text-sm transition-colors",
+                    "b2b-nav-link inline-flex items-center gap-1.5 rounded-[var(--radius-sm)] px-2.5 py-1.5 text-sm transition-colors",
                     active
                       ? "bg-[var(--primary-soft)] font-medium text-[var(--primary)]"
                       : "text-[var(--muted-foreground)] hover:bg-[var(--surface-sunken)] hover:text-[var(--foreground)]",
@@ -87,7 +99,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               Search
             </Button>
             <AccountSwitcher />
-            <Button asChild variant="soft" size="sm" className="gap-2">
+            <Button
+              asChild
+              variant="soft"
+              size="sm"
+              className={cn("gap-2", cartBump && "b2b-bump")}
+            >
               <Link href="/cart">
                 <ShoppingCart className="size-3.5" />
                 <span className="hidden tabular sm:inline">{itemCount}</span>
