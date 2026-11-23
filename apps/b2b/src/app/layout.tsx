@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
 import { brand } from "@westwinds/lib";
-import { InteractionEffects } from "@/components/interaction-effects";
+import { InteractionEffects } from "@westwinds/ui";
 import { Providers } from "@/components/providers";
 import "./globals.css";
 

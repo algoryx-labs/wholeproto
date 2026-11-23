@@ -2,6 +2,7 @@ import { Providers } from "@/components/providers";
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
 import { brand } from "@westwinds/lib";
+import { InteractionEffects } from "@westwinds/ui";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${inter.variable} ${bricolage.variable} font-sans antialiased`}
       >
         <Providers>{children}</Providers>
+        <InteractionEffects />
       </body>
     </html>
   );

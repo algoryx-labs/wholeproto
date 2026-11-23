@@ -189,26 +189,26 @@ a.bg-\[var\(--primary\)\]:hover {
 }
 
 /* Click ripple (spawned by InteractionEffects) */
-.b2b-ripple-clip {
+.ui-ripple-clip {
   position: absolute;
   inset: 0;
   overflow: hidden;
   border-radius: inherit;
   pointer-events: none;
 }
-.b2b-ripple {
+.ui-ripple {
   position: absolute;
   border-radius: 9999px;
   background: radial-gradient(circle, rgba(0, 114, 188, 0.28) 0%, rgba(0, 114, 188, 0) 70%);
   transform: scale(0);
-  animation: b2b-ripple 0.6s var(--ease-out) forwards;
+  animation: ui-ripple 0.6s var(--ease-out) forwards;
 }
-[data-variant="default"] > .b2b-ripple-clip .b2b-ripple,
-[data-variant="danger"] > .b2b-ripple-clip .b2b-ripple,
-[data-slot="tabs-trigger"][data-state="active"] > .b2b-ripple-clip .b2b-ripple {
+[data-variant="default"] > .ui-ripple-clip .ui-ripple,
+[data-variant="danger"] > .ui-ripple-clip .ui-ripple,
+[data-slot="tabs-trigger"][data-state="active"] > .ui-ripple-clip .ui-ripple {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 70%);
 }
-@keyframes b2b-ripple {
+@keyframes ui-ripple {
   to {
     transform: scale(1);
     opacity: 0;

@@ -147,3 +147,4 @@ export {
   DemoSwitcher,
   type DemoSwitcherProps,
 } from "./composites/demo-switcher";
+export { InteractionEffects } from "./composites/interaction-effects";

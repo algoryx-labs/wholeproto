@@ -4,7 +4,10 @@ import { useEffect } from "react";
 
 const RIPPLE_TARGETS = '[data-slot="button"], [data-slot="tabs-trigger"]';
 
-/** Material-style click ripple for every shared button and tab in the portal. */
+/**
+ * Click ripple for every shared button and tab. Renders nothing; the app's
+ * stylesheet styles `.ui-ripple-clip` and `.ui-ripple`.
+ */
 export function InteractionEffects() {
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -22,9 +25,9 @@ export function InteractionEffects() {
       const diameter = Math.max(rect.width, rect.height) * 2.2;
 
       const clip = document.createElement("span");
-      clip.className = "b2b-ripple-clip";
+      clip.className = "ui-ripple-clip";
       const wave = document.createElement("span");
-      wave.className = "b2b-ripple";
+      wave.className = "ui-ripple";
       wave.style.width = wave.style.height = `${diameter}px`;
       wave.style.left = `${event.clientX - rect.left - diameter / 2}px`;
       wave.style.top = `${event.clientY - rect.top - diameter / 2}px`;

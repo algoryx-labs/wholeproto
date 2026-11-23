@@ -83,8 +83,9 @@ export function Sidebar({
                       <Link
                         href={item.href}
                         title={collapsed ? item.label : undefined}
+                        data-active={active || undefined}
                         className={cn(
-                          "flex items-center gap-2.5 rounded-[var(--radius-sm)] px-2.5 py-2 text-sm transition-colors",
+                          "admin-nav-link flex items-center gap-2.5 rounded-[var(--radius-sm)] px-2.5 py-2 text-sm transition-colors",
                           active
                             ? "bg-[var(--primary-soft)] font-medium text-[var(--primary)]"
                             : "text-[var(--foreground)] hover:bg-[var(--surface-sunken)]",
