@@ -19,7 +19,7 @@ export default function StorefrontPage() {
     <div className="space-y-6">
       <PageHeader
         title="App storefront"
-        description="Banners and featured surfaces that drive the Westwinds mobile home."
+        description="Banners and featured surfaces that drive the consumer mobile home."
       />
 
       <SectionCard

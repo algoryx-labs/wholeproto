@@ -43,7 +43,7 @@ export const roles: Role[] = [
   {
     id: "role-owner",
     name: "Owner",
-    description: "Full access across Westwinds Admin.",
+    description: "Full access across Calgary Wholesale Admin.",
     warehouseScoped: false,
     permissions: perms(
       Object.fromEntries(modules.map((m) => [m, allActions])) as Record<
@@ -131,7 +131,7 @@ export const adminUsers: AdminUser[] = [
   {
     id: "adm-01",
     name: "Amelia West",
-    email: "amelia.west@westwinds.ca",
+    email: "amelia.west@calgarywholesale.ca",
     roleId: "role-owner",
     avatarInitials: "AW",
     active: true,
@@ -140,7 +140,7 @@ export const adminUsers: AdminUser[] = [
   {
     id: "adm-02",
     name: "Priya Singh",
-    email: "priya.singh@westwinds.ca",
+    email: "priya.singh@calgarywholesale.ca",
     roleId: "role-ops",
     avatarInitials: "PS",
     active: true,
@@ -149,7 +149,7 @@ export const adminUsers: AdminUser[] = [
   {
     id: "adm-03",
     name: "Marcus Chen",
-    email: "marcus.chen@westwinds.ca",
+    email: "marcus.chen@calgarywholesale.ca",
     roleId: "role-warehouse",
     warehouseId: "wh-brw",
     avatarInitials: "MC",
@@ -159,7 +159,7 @@ export const adminUsers: AdminUser[] = [
   {
     id: "adm-04",
     name: "Elena Petrova",
-    email: "elena.petrova@westwinds.ca",
+    email: "elena.petrova@calgarywholesale.ca",
     roleId: "role-warehouse",
     warehouseId: "wh-etx",
     avatarInitials: "EP",
@@ -169,7 +169,7 @@ export const adminUsers: AdminUser[] = [
   {
     id: "adm-05",
     name: "James Okonkwo",
-    email: "james.okonkwo@westwinds.ca",
+    email: "james.okonkwo@calgarywholesale.ca",
     roleId: "role-warehouse",
     warehouseId: "wh-hmd",
     avatarInitials: "JO",
@@ -179,7 +179,7 @@ export const adminUsers: AdminUser[] = [
   {
     id: "adm-06",
     name: "Sofia Alvarez",
-    email: "sofia.alvarez@westwinds.ca",
+    email: "sofia.alvarez@calgarywholesale.ca",
     roleId: "role-warehouse",
     warehouseId: "wh-mdc",
     avatarInitials: "SA",
@@ -189,7 +189,7 @@ export const adminUsers: AdminUser[] = [
   {
     id: "adm-07",
     name: "Noah Patel",
-    email: "noah.patel@westwinds.ca",
+    email: "noah.patel@calgarywholesale.ca",
     roleId: "role-sales",
     avatarInitials: "NP",
     active: true,
@@ -198,7 +198,7 @@ export const adminUsers: AdminUser[] = [
   {
     id: "adm-08",
     name: "Grace Kim",
-    email: "grace.kim@westwinds.ca",
+    email: "grace.kim@calgarywholesale.ca",
     roleId: "role-sales",
     avatarInitials: "GK",
     active: true,
@@ -207,7 +207,7 @@ export const adminUsers: AdminUser[] = [
   {
     id: "adm-09",
     name: "Liam O'Brien",
-    email: "liam.obrien@westwinds.ca",
+    email: "liam.obrien@calgarywholesale.ca",
     roleId: "role-accountant",
     avatarInitials: "LO",
     active: true,
@@ -216,7 +216,7 @@ export const adminUsers: AdminUser[] = [
   {
     id: "adm-10",
     name: "Aisha Rahman",
-    email: "aisha.rahman@westwinds.ca",
+    email: "aisha.rahman@calgarywholesale.ca",
     roleId: "role-support",
     avatarInitials: "AR",
     active: true,
@@ -225,7 +225,7 @@ export const adminUsers: AdminUser[] = [
   {
     id: "adm-11",
     name: "Ben Carver",
-    email: "ben.carver@westwinds.ca",
+    email: "ben.carver@calgarywholesale.ca",
     roleId: "role-ops",
     avatarInitials: "BC",
     active: true,
@@ -234,7 +234,7 @@ export const adminUsers: AdminUser[] = [
   {
     id: "adm-12",
     name: "Maya Thompson",
-    email: "maya.thompson@westwinds.ca",
+    email: "maya.thompson@calgarywholesale.ca",
     roleId: "role-support",
     avatarInitials: "MT",
     active: false,

@@ -53,7 +53,7 @@ export default function OrdersPage() {
     <div className="space-y-6">
       <PageHeader
         title="Orders"
-        description="B2B Trade and Westwinds app orders on one board."
+        description="B2B Trade and consumer app orders on one board."
       />
 
       <Tabs

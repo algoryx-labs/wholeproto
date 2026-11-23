@@ -24,7 +24,7 @@ export default function AppCustomersPage() {
     <div className="space-y-6">
       <PageHeader
         title="App customers"
-        description="Consumers ordering through the Westwinds mobile experience."
+        description="Consumers ordering through the mobile app."
       />
       {consumersQ.isLoading ? (
         <Skeleton className="h-64 w-full" />

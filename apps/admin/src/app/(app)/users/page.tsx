@@ -33,7 +33,7 @@ export default function UsersPage() {
     <div className="space-y-6">
       <PageHeader
         title="Users & roles"
-        description="Staff access for Westwinds Admin. Use View as role in the top bar to simulate permissions."
+        description="Staff access for Calgary Wholesale Admin. Use View as role in the top bar to simulate permissions."
       />
       {usersQ.isLoading ? (
         <Skeleton className="h-64" />

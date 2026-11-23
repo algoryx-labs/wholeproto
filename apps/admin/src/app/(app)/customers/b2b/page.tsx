@@ -36,7 +36,7 @@ export default function B2BCustomersPage() {
     <div className="space-y-6">
       <PageHeader
         title="B2B accounts"
-        description="Wholesale buyers on Westwinds Trade."
+        description="Wholesale buyers on Calgary Wholesale Cash N Carry."
       />
       {customersQ.isLoading ? (
         <Skeleton className="h-64 w-full" />

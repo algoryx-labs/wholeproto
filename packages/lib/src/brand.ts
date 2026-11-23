@@ -1,10 +1,10 @@
 export const brand = {
   companyName: "Westwinds Wholesale",
   shortName: "Westwinds",
-  adminAppName: "Westwinds Admin",
+  adminAppName: "Calgary Wholesale Admin",
   b2bAppName: "Calgary Wholesale Cash N Carry",
   mobileAppName: "Westwinds",
-  supportEmail: "support@westwinds.ca",
+  supportEmail: "support@calgarywholesale.ca",
   supportPhone: "+1 (905) 555-0142",
   currency: "CAD",
   locale: "en-CA",

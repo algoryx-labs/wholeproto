@@ -43,7 +43,7 @@ export function Sidebar({
       )}
     >
       <div className="relative flex h-14 items-center justify-between gap-1 border-b border-[var(--border)] px-2">
-        <Logo size="sm" showWordmark={!collapsed} wordmark="Admin" />
+        {collapsed ? null : <Logo size="sm" src="/logo.png" wordmark="Admin" />}
         <Button
           type="button"
           variant="ghost"

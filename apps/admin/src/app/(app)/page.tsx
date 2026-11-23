@@ -213,7 +213,7 @@ export default function DashboardPage() {
 
         <SectionCard
           title="Latest orders"
-          description="B2B Trade and Westwinds app"
+          description="B2B Trade and consumer app"
           className="xl:col-span-2"
           actions={
             <Link
@@ -301,7 +301,7 @@ export default function DashboardPage() {
             <div className="flex items-center gap-2">
               <StatusBadge status="active" label="Connected" />
               <span className="text-xs text-[var(--muted-foreground)]">
-                Westwinds Online company file
+                Calgary Wholesale Online company file
               </span>
             </div>
             <ul className="space-y-2 text-sm">

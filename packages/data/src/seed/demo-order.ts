@@ -28,7 +28,7 @@ export function statusHistory(
     at: new Date(
       new Date(createdAt).getTime() + idx * 1000 * 60 * 60 * 8,
     ).toISOString(),
-    by: idx === 0 ? undefined : "Westwinds Ops",
+    by: idx === 0 ? undefined : "Warehouse Ops",
   }));
 }
 

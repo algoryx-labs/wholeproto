@@ -71,7 +71,7 @@ export const promotions: Promotion[] = [
   },
   {
     id: "promo-both-welcome",
-    code: "WESTWINDS",
+    code: "WELCOME10",
     name: "Welcome offer",
     description: "$10 off orders over $75 — Trade and mobile.",
     type: "fixed_off",

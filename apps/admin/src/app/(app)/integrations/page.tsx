@@ -55,7 +55,7 @@ export default function IntegrationsPage() {
     <div className="space-y-6">
       <PageHeader
         title="Integrations"
-        description="Accounting and fulfilment connections for Westwinds Admin."
+        description="Accounting and fulfilment connections for Calgary Wholesale Admin."
       />
 
       <Card>
@@ -63,7 +63,7 @@ export default function IntegrationsPage() {
           <div>
             <CardTitle>QuickBooks Online</CardTitle>
             <p className="mt-1 text-sm text-[var(--muted-foreground)]">
-              Westwinds Wholesale company file
+              Calgary Wholesale company file
             </p>
           </div>
           <StatusBadge status="active" label="Connected" />

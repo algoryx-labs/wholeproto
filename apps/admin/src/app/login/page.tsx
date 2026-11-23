@@ -21,7 +21,7 @@ export default function LoginPage() {
   const router = useRouter();
   const signIn = useSessionStore((s) => s.signIn);
   const signedIn = useSessionStore((s) => s.signedIn);
-  const [email, setEmail] = React.useState("amelia.west@westwinds.ca");
+  const [email, setEmail] = React.useState("amelia.west@calgarywholesale.ca");
   const [password, setPassword] = React.useState("demo");
   const [roleId, setRoleId] = React.useState("role-owner");
   const [loading, setLoading] = React.useState(false);
@@ -46,7 +46,19 @@ export default function LoginPage() {
   return (
     <div className="grid min-h-screen lg:grid-cols-2">
       <div className="relative hidden overflow-hidden bg-[linear-gradient(160deg,var(--primary)_0%,#0f3d2e_55%,#1a5c42_100%)] p-10 text-white lg:flex lg:flex-col lg:justify-between">
-        <Logo showWordmark wordmark={brand.adminAppName} className="text-white [&_span:last-child]:text-white" />
+        <div className="flex items-center gap-4">
+          <span className="rounded-[var(--radius-md)] bg-white p-2 shadow-[var(--shadow-pop)]">
+            <Logo
+              size="md"
+              src="/logo.png"
+              showWordmark={false}
+              wordmark={brand.adminAppName}
+            />
+          </span>
+          <span className="font-display text-xl font-semibold tracking-tight">
+            {brand.adminAppName}
+          </span>
+        </div>
         <div className="space-y-4">
           <h1 className="font-display text-4xl font-semibold tracking-tight">
             Control inventory across Ontario warehouses
@@ -65,7 +77,7 @@ export default function LoginPage() {
         <Card className="w-full max-w-md border-[var(--border)] shadow-[var(--shadow-card)]">
           <CardHeader>
             <div className="mb-2 lg:hidden">
-              <Logo size="sm" wordmark={brand.adminAppName} />
+              <Logo size="sm" src="/logo.png" wordmark={brand.adminAppName} />
             </div>
             <CardTitle className="font-display text-2xl">Sign in</CardTitle>
             <CardDescription>

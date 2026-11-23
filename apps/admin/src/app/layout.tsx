@@ -18,7 +18,7 @@ const bricolage = Bricolage_Grotesque({
 
 export const metadata: Metadata = {
   title: brand.adminAppName,
-  description: `${brand.companyName} staff console for inventory, orders, and pricing.`,
+  description: `${brand.adminAppName} staff console for inventory, orders, and pricing.`,
 };
 
 export default function RootLayout({

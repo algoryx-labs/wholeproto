@@ -62,7 +62,7 @@ export const useOrderStore = create<OrderState>()(
         const entry = {
           status: next,
           at: new Date().toISOString(),
-          by: "Westwinds Ops",
+          by: "Warehouse Ops",
         };
         set((s) => ({
           statusOverrides: { ...s.statusOverrides, [id]: next },

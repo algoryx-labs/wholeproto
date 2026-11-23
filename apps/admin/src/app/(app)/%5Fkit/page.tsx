@@ -19,7 +19,7 @@ export default function KitPage() {
     <div className="space-y-8">
       <PageHeader
         title="Component kit"
-        description="Hidden reference surface for shared @westwinds/ui composites."
+        description="Hidden reference surface for shared UI composites."
       />
 
       <section className="space-y-3">

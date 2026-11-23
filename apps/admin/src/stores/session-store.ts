@@ -20,7 +20,7 @@ interface SessionState {
 export const useSessionStore = create<SessionState>()(
   persist(
     (set) => ({
-      email: "amelia.west@westwinds.ca",
+      email: "amelia.west@calgarywholesale.ca",
       roleId: "role-owner",
       warehouseScopeId: "all",
       signedIn: false,

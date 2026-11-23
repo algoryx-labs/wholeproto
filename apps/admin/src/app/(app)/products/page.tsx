@@ -50,7 +50,7 @@ export default function ProductsPage() {
     <div className="space-y-6">
       <PageHeader
         title="Products"
-        description="Catalog shared by Westwinds Trade and the consumer app."
+        description="Catalog shared by the Calgary Wholesale Cash N Carry portal and the consumer app."
       />
 
       {productsQ.isLoading ? (

@@ -13,7 +13,7 @@ export const warehouses: Warehouse[] = [
       country: "CA",
     },
     managerName: "Priya Singh",
-    managerEmail: "priya.singh@westwinds.ca",
+    managerEmail: "priya.singh@calgarywholesale.ca",
     capacityPct: 78,
     zones: [
       { code: "A", name: "Ambient grocery" },
@@ -36,7 +36,7 @@ export const warehouses: Warehouse[] = [
       country: "CA",
     },
     managerName: "Marcus Chen",
-    managerEmail: "marcus.chen@westwinds.ca",
+    managerEmail: "marcus.chen@calgarywholesale.ca",
     capacityPct: 64,
     zones: [
       { code: "A", name: "Ambient grocery" },
@@ -59,7 +59,7 @@ export const warehouses: Warehouse[] = [
       country: "CA",
     },
     managerName: "Elena Petrova",
-    managerEmail: "elena.petrova@westwinds.ca",
+    managerEmail: "elena.petrova@calgarywholesale.ca",
     capacityPct: 52,
     zones: [
       { code: "X1", name: "Cross-dock inbound" },
@@ -81,7 +81,7 @@ export const warehouses: Warehouse[] = [
       country: "CA",
     },
     managerName: "James Okonkwo",
-    managerEmail: "james.okonkwo@westwinds.ca",
+    managerEmail: "james.okonkwo@calgarywholesale.ca",
     capacityPct: 71,
     zones: [
       { code: "A", name: "Ambient grocery" },
