@@ -26,6 +26,7 @@ import {
   Textarea,
 } from "@westwinds/ui";
 import { AlertTriangle } from "lucide-react";
+import { newPickupCode, PICKUP_WAREHOUSES, PICKUP_WINDOWS } from "@/lib/pickups";
 import { orderTotals } from "@/lib/pricing";
 import { useCartStore } from "@/stores/cart-store";
 import { useOrdersOverlayStore } from "@/stores/orders-overlay-store";
@@ -46,6 +47,13 @@ export default function CheckoutPage() {
   const [date, setDate] = React.useState(
     format(addDays(new Date("2026-09-17"), 2), "yyyy-MM-dd"),
   );
+  const [pickupWarehouseId, setPickupWarehouseId] = React.useState("wh-mdc");
+  const [pickupDate, setPickupDate] = React.useState(
+    format(addDays(new Date("2026-09-17"), 1), "yyyy-MM-dd"),
+  );
+  const [pickupWindow, setPickupWindow] = React.useState<string>(PICKUP_WINDOWS[1]);
+  const [pickupContact, setPickupContact] = React.useState(user?.name ?? "");
+  const [vehicle, setVehicle] = React.useState("");
   const [po, setPo] = React.useState("");
   const [notes, setNotes] = React.useState("");
   const [submitting, setSubmitting] = React.useState(false);
@@ -82,6 +90,8 @@ export default function CheckoutPage() {
     }));
 
     const status = needsApproval ? "pending_approval" : "confirmed";
+    const isPickup = fulfill === "pickup";
+    const pickupCode = newPickupCode();
     const order: B2BOrder = {
       id,
       number,
@@ -89,7 +99,7 @@ export default function CheckoutPage() {
       status,
       customerId: lakeshoreCustomer.id,
       customerName: lakeshoreCustomer.name,
-      warehouseId: "wh-mdc",
+      warehouseId: isPickup ? pickupWarehouseId : "wh-mdc",
       lines: orderLines,
       subtotal: totals.subtotal,
       taxRate: totals.taxRate,
@@ -98,10 +108,19 @@ export default function CheckoutPage() {
       paymentStatus: "unpaid",
       poNumber: po || undefined,
       deliveryAddress: location,
-      deliveryDate: fulfill === "delivery" ? date : undefined,
-      notes:
-        notes ||
-        (fulfill === "pickup" ? "Customer pickup at Mississauga DC" : undefined),
+      deliveryDate: isPickup ? undefined : date,
+      fulfillment: fulfill,
+      pickup: isPickup
+        ? {
+            warehouseId: pickupWarehouseId,
+            date: pickupDate,
+            window: pickupWindow,
+            code: pickupCode,
+            contactName: pickupContact || undefined,
+            vehicle: vehicle || undefined,
+          }
+        : undefined,
+      notes: notes || undefined,
       createdAt: now,
       updatedAt: now,
       statusHistory: [
@@ -117,7 +136,9 @@ export default function CheckoutPage() {
     toast.success(
       needsApproval
         ? "Order submitted for approval"
-        : `Order ${number} confirmed`,
+        : isPickup
+          ? `Order ${number} confirmed · pickup code ${pickupCode}`
+          : `Order ${number} confirmed`,
     );
     router.push(`/orders/confirmation/${id}`);
   };
@@ -170,7 +191,7 @@ export default function CheckoutPage() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="delivery">Delivery</SelectItem>
-                    <SelectItem value="pickup">Pickup (MDC)</SelectItem>
+                    <SelectItem value="pickup">Warehouse pickup</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -184,7 +205,70 @@ export default function CheckoutPage() {
                     onChange={(e) => setDate(e.target.value)}
                   />
                 </div>
-              ) : null}
+              ) : (
+                <>
+                  <div className="space-y-2 sm:col-span-2">
+                    <Label>Pickup warehouse</Label>
+                    <Select
+                      value={pickupWarehouseId}
+                      onValueChange={setPickupWarehouseId}
+                    >
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {PICKUP_WAREHOUSES.map((w) => (
+                          <SelectItem key={w.id} value={w.id}>
+                            {w.name} · {w.address.line1}, {w.address.city}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="pickup-date">Pickup date</Label>
+                    <Input
+                      id="pickup-date"
+                      type="date"
+                      value={pickupDate}
+                      onChange={(e) => setPickupDate(e.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Time window</Label>
+                    <Select value={pickupWindow} onValueChange={setPickupWindow}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {PICKUP_WINDOWS.map((w) => (
+                          <SelectItem key={w} value={w}>
+                            {w}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="pickup-contact">Picked up by</Label>
+                    <Input
+                      id="pickup-contact"
+                      value={pickupContact}
+                      onChange={(e) => setPickupContact(e.target.value)}
+                      placeholder="Driver or staff name"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="vehicle">Vehicle / plate</Label>
+                    <Input
+                      id="vehicle"
+                      value={vehicle}
+                      onChange={(e) => setVehicle(e.target.value)}
+                      placeholder="White van · CBRT 418"
+                    />
+                  </div>
+                </>
+              )}
               <div className="space-y-2">
                 <Label htmlFor="po">PO number</Label>
                 <Input

@@ -1,2 +1,102 @@
 @import "@westwinds/ui/globals.css";
 @source "../../../../packages/ui/src";
+
+/* Calgary Wholesale palette: logo blue #0079C1, logo green #8DC63F */
+@theme {
+  --color-background: transparent;
+  --color-surface-sunken: #EEF4FA;
+  --color-foreground: #0B1B2B;
+  --color-muted-foreground: #556677;
+  --color-subtle-foreground: #8696A7;
+  --color-border: #DCE6F0;
+  --color-border-strong: #C3D2E1;
+  --color-primary: #0072BC;
+  --color-primary-hover: #005C99;
+  --color-primary-soft: #E3F0FA;
+  --color-ring: #0072BC;
+  --color-offer: #6FA22B;
+  --color-offer-soft: #EEF7E1;
+}
+
+:root {
+  /* Page wrappers paint var(--background); the body gradient shows through */
+  --background: transparent;
+  --surface: #FFFFFF;
+  --surface-sunken: #EEF4FA;
+  --foreground: #0B1B2B;
+  --muted-foreground: #556677;
+  --subtle-foreground: #8696A7;
+  --border: #DCE6F0;
+  --border-strong: #C3D2E1;
+
+  --primary: #0072BC;
+  --primary-hover: #005C99;
+  --primary-soft: #E3F0FA;
+  --primary-foreground: #FFFFFF;
+  --ring: #0072BC;
+
+  --brand-green: #8DC63F;
+  --brand-navy: #0A2540;
+
+  --offer: #6FA22B;
+  --offer-soft: #EEF7E1;
+  --success: #2E8B3E;
+  --success-soft: #E5F5E3;
+  --info: #0072BC;
+  --info-soft: #E3F0FA;
+
+  --shadow-card: 0 1px 2px rgba(10, 37, 64, 0.05), 0 6px 20px -6px rgba(10, 60, 110, 0.12);
+  --shadow-pop: 0 18px 40px -12px rgba(10, 37, 64, 0.28), 0 4px 10px rgba(10, 37, 64, 0.08);
+}
+
+html,
+body {
+  min-height: 100%;
+  background-color: #F2F7FB;
+  background-image:
+    radial-gradient(1100px 520px at -5% -10%, rgba(0, 114, 188, 0.16), transparent 60%),
+    radial-gradient(900px 480px at 105% -5%, rgba(141, 198, 63, 0.20), transparent 58%),
+    radial-gradient(900px 700px at 50% 115%, rgba(0, 114, 188, 0.10), transparent 60%),
+    linear-gradient(180deg, #F5F9FD 0%, #EDF3F9 100%);
+  background-attachment: fixed;
+}
+
+/* Brand stripe across the top of the portal header */
+header.sticky {
+  box-shadow: 0 1px 0 rgba(10, 37, 64, 0.04), 0 8px 24px -16px rgba(10, 37, 64, 0.25);
+}
+header.sticky::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary) 0%, #2A9AD8 45%, var(--brand-green) 100%);
+}
+
+/* Primary buttons get a subtle brand gradient */
+button.bg-\[var\(--primary\)\],
+a.bg-\[var\(--primary\)\] {
+  background-image: linear-gradient(135deg, #0A84D6 0%, var(--primary) 55%, #005C99 100%);
+  box-shadow: 0 6px 16px -8px rgba(0, 114, 188, 0.7);
+}
+button.bg-\[var\(--primary\)\]:hover,
+a.bg-\[var\(--primary\)\]:hover {
+  background-image: linear-gradient(135deg, #0077C4 0%, #005C99 100%);
+}
+
+/* Soft buttons: blue hover instead of the shared green tint */
+.hover\:bg-\[\#D5EBE2\]:hover {
+  background-color: #D2E7F7;
+}
+
+/* Cards: crisper edge and a gentle lift on hover for linked cards */
+.shadow-\[var\(--shadow-card\)\] {
+  border-color: rgba(195, 210, 225, 0.7);
+}
+a > .shadow-\[var\(--shadow-card\)\]:hover,
+a.rounded-\[var\(--radius-md\)\]:hover {
+  box-shadow: var(--shadow-pop);
+}
+
+::selection {
+  background: rgba(0, 114, 188, 0.18);
+}

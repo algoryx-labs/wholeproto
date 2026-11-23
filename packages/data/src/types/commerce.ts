@@ -40,6 +40,18 @@ interface OrderBase {
   }>;
 }
 
+export type FulfillmentMethod = "delivery" | "pickup";
+
+export interface PickupDetails {
+  warehouseId: string;
+  /** yyyy-MM-dd */
+  date: string;
+  window: string;
+  code: string;
+  contactName?: string;
+  vehicle?: string;
+}
+
 export interface B2BOrder extends OrderBase {
   channel: "b2b";
   status: B2BOrderStatus;
@@ -48,6 +60,9 @@ export interface B2BOrder extends OrderBase {
   poNumber?: string;
   deliveryAddress: Address;
   deliveryDate?: string;
+  /** Missing on older orders, which are all deliveries */
+  fulfillment?: FulfillmentMethod;
+  pickup?: PickupDetails;
   quickbooksSyncedAt?: string;
 }
 

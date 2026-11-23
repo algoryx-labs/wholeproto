@@ -2,12 +2,8 @@
 
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { formatDate } from "@westwinds/lib";
-import {
-  getInvoices,
-  getPromotions,
-  LAKESHORE_CUSTOMER_ID,
-} from "@westwinds/data";
+import { formatCurrency, formatDate } from "@westwinds/lib";
+import { getPromotions } from "@westwinds/data";
 import {
   Button,
   Money,
@@ -16,9 +12,16 @@ import {
   Skeleton,
   StatusBadge,
 } from "@westwinds/ui";
-import { Megaphone, RefreshCw } from "lucide-react";
+import { Megaphone, RefreshCw, Warehouse as WarehouseIcon } from "lucide-react";
 import { useLakeshoreAccount } from "@/hooks/use-lakeshore-account";
+import { useLakeshoreBilling } from "@/hooks/use-lakeshore-billing";
 import { useLakeshoreOrders } from "@/hooks/use-lakeshore-orders";
+import {
+  canChangePickup,
+  isPickup,
+  pickupState,
+  warehouseFor,
+} from "@/lib/pickups";
 import { useCartStore } from "@/stores/cart-store";
 import { toast } from "sonner";
 
@@ -27,10 +30,7 @@ export default function DashboardPage() {
   const { orders, isLoading: ordersLoading } = useLakeshoreOrders();
   const addLine = useCartStore((s) => s.addLine);
 
-  const invoicesQuery = useQuery({
-    queryKey: ["invoices", LAKESHORE_CUSTOMER_ID],
-    queryFn: () => getInvoices({ customerId: LAKESHORE_CUSTOMER_ID }),
-  });
+  const billing = useLakeshoreBilling();
   const promosQuery = useQuery({
     queryKey: ["promotions"],
     queryFn: () => getPromotions(),
@@ -38,19 +38,16 @@ export default function DashboardPage() {
 
   const lastOrder = orders[0];
   const recent = orders.slice(0, 5);
-  const openInvoices = (invoicesQuery.data ?? []).filter(
-    (i) => i.status !== "paid",
-  ).slice(0, 4);
+  const openInvoices = billing.openInvoices.slice(0, 4);
+  const nextPickup = orders
+    .filter((o) => isPickup(o) && canChangePickup(o))
+    .sort((a, b) => a.pickup!.date.localeCompare(b.pickup!.date))[0];
   const announcement =
     (promosQuery.data ?? []).find(
       (p) => p.active && (p.channel === "b2b" || p.channel === "both"),
     ) ?? null;
 
-  const usedPct = Math.min(
-    100,
-    Math.round((customer.balance / customer.creditLimit) * 100),
-  );
-  const available = Math.max(0, customer.creditLimit - customer.balance);
+  const { usedPct, available, used } = billing.credit;
 
   const buyAgain = () => {
     if (!lastOrder) return;
@@ -92,6 +89,28 @@ export default function DashboardPage() {
         </div>
       ) : null}
 
+      {nextPickup ? (
+        <Link
+          href="/pickups"
+          className="flex flex-wrap items-center gap-3 rounded-[var(--radius-md)] border border-[var(--border)] bg-[var(--surface)] px-4 py-3 transition-colors hover:border-[var(--primary)]/40"
+        >
+          <WarehouseIcon className="size-4 shrink-0 text-[var(--primary)]" />
+          <div className="min-w-0 flex-1 text-sm">
+            <p className="font-medium">
+              Next pickup · {formatDate(`${nextPickup.pickup!.date}T12:00:00`)},{" "}
+              {nextPickup.pickup!.window}
+            </p>
+            <p className="text-[var(--muted-foreground)]">
+              {nextPickup.number} at {warehouseFor(nextPickup.pickup!.warehouseId).name}
+            </p>
+          </div>
+          <StatusBadge status={pickupState(nextPickup)} />
+          <span className="font-mono text-sm font-semibold tracking-widest">
+            {nextPickup.pickup!.code}
+          </span>
+        </Link>
+      ) : null}
+
       <div className="grid gap-4 lg:grid-cols-3">
         <SectionCard
           title="Credit"
@@ -108,7 +127,7 @@ export default function DashboardPage() {
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-[var(--muted-foreground)]">Used</span>
-                <Money amount={customer.balance} className="font-medium" />
+                <Money amount={used} className="font-medium" />
               </div>
               <div className="h-2 overflow-hidden rounded-full bg-[var(--surface-sunken)]">
                 <div
@@ -206,13 +225,22 @@ export default function DashboardPage() {
 
         <SectionCard
           title="Open invoices"
+          description={
+            billing.summary.outstanding > 0
+              ? `${formatCurrency(billing.summary.outstanding)} outstanding${
+                  billing.summary.overdue > 0
+                    ? ` · ${formatCurrency(billing.summary.overdue)} overdue`
+                    : ""
+                }`
+              : undefined
+          }
           actions={
             <Button asChild variant="ghost" size="sm">
-              <Link href="/invoices">View all</Link>
+              <Link href="/billing">Billing</Link>
             </Button>
           }
         >
-          {invoicesQuery.isLoading ? (
+          {billing.isLoading ? (
             <Skeleton className="h-40 w-full" />
           ) : openInvoices.length === 0 ? (
             <p className="text-sm text-[var(--muted-foreground)]">
@@ -221,20 +249,22 @@ export default function DashboardPage() {
           ) : (
             <ul className="divide-y divide-[var(--border)]">
               {openInvoices.map((inv) => (
-                <li
-                  key={inv.id}
-                  className="flex items-center justify-between gap-3 py-2.5 text-sm"
-                >
-                  <div>
-                    <p className="font-medium">{inv.number}</p>
-                    <p className="text-xs text-[var(--muted-foreground)]">
-                      Due {formatDate(inv.dueAt)} · {inv.orderNumber}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <StatusBadge status={inv.status} showIcon={false} />
-                    <Money amount={inv.balanceDue} className="font-medium" />
-                  </div>
+                <li key={inv.id}>
+                  <Link
+                    href={`/billing/invoices/${inv.id}`}
+                    className="flex items-center justify-between gap-3 py-2.5 text-sm hover:text-[var(--primary)]"
+                  >
+                    <div>
+                      <p className="font-medium">{inv.number}</p>
+                      <p className="text-xs text-[var(--muted-foreground)]">
+                        Due {formatDate(inv.dueAt)} · {inv.orderNumber}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <StatusBadge status={inv.status} showIcon={false} />
+                      <Money amount={inv.balanceDue} className="font-medium" />
+                    </div>
+                  </Link>
                 </li>
               ))}
             </ul>

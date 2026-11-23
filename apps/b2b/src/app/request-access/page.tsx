@@ -66,7 +66,13 @@ export default function RequestAccessPage() {
     <div className="flex min-h-screen items-center justify-center bg-[var(--background)] px-4 py-12">
       <Card className="w-full max-w-lg">
         <CardHeader className="space-y-3">
-          <Logo size="sm" wordmark={brand.b2bAppName} />
+          <Logo
+            size="md"
+            src="/logo.png"
+            showWordmark={false}
+            wordmark={brand.b2bAppName}
+            className="self-center"
+          />
           <div>
             <CardTitle className="font-display text-xl">Request Trade access</CardTitle>
             <CardDescription>

@@ -15,17 +15,15 @@ import {
   TabsTrigger,
 } from "@westwinds/ui";
 import { useLakeshoreAccount } from "@/hooks/use-lakeshore-account";
+import { useLakeshoreBilling } from "@/hooks/use-lakeshore-billing";
 import { useSessionStore } from "@/stores/session-store";
 
 export default function AccountPage() {
   const { customer, priceGroup } = useLakeshoreAccount();
   const user = useSessionStore((s) => s.user);
   const role = useSessionStore((s) => s.role);
-  const available = Math.max(0, customer.creditLimit - customer.balance);
-  const usedPct = Math.min(
-    100,
-    Math.round((customer.balance / customer.creditLimit) * 100),
-  );
+  const { credit } = useLakeshoreBilling();
+  const { available, usedPct, used } = credit;
 
   return (
     <div className="space-y-6">
@@ -138,7 +136,7 @@ export default function AccountPage() {
               <div>
                 <dt className="text-xs text-[var(--muted-foreground)]">Balance used</dt>
                 <dd>
-                  <Money amount={customer.balance} className="text-lg font-semibold" />
+                  <Money amount={used} className="text-lg font-semibold" />
                 </dd>
               </div>
               <div>

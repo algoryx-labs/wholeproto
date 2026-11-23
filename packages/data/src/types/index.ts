@@ -33,6 +33,8 @@ export type {
 } from "./customers";
 export type {
   OrderLine,
+  FulfillmentMethod,
+  PickupDetails,
   B2BOrder,
   B2COrder,
   Order,

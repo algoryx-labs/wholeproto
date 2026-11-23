@@ -4,6 +4,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { formatDate } from "@westwinds/lib";
 import {
+  Badge,
   Button,
   EmptyState,
   Money,
@@ -19,6 +20,7 @@ import {
 } from "@westwinds/ui";
 import { Package } from "lucide-react";
 import { useLakeshoreOrders } from "@/hooks/use-lakeshore-orders";
+import { isPickup } from "@/lib/pickups";
 import { useCartStore } from "@/stores/cart-store";
 
 export default function OrdersPage() {
@@ -88,7 +90,12 @@ export default function OrdersPage() {
                     {formatDate(order.createdAt)}
                   </TableCell>
                   <TableCell>
-                    <StatusBadge status={order.status} showIcon={false} />
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <StatusBadge status={order.status} showIcon={false} />
+                      {isPickup(order) ? (
+                        <Badge variant="outline">Pickup</Badge>
+                      ) : null}
+                    </div>
                   </TableCell>
                   <TableCell className="text-sm">
                     {order.poNumber ?? "—"}

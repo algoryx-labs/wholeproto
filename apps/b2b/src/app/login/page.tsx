@@ -41,7 +41,13 @@ function LoginForm() {
   return (
     <Card className="w-full max-w-md border-[var(--border)] shadow-[var(--shadow-card)]">
       <CardHeader className="space-y-3">
-        <Logo wordmark={brand.b2bAppName} />
+        <Logo
+          size="lg"
+          src="/logo.png"
+          showWordmark={false}
+          wordmark={brand.b2bAppName}
+          className="self-center"
+        />
         <div>
           <CardTitle className="font-display text-xl">Sign in</CardTitle>
           <CardDescription>
@@ -96,7 +102,7 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--primary-soft),_transparent_55%),linear-gradient(180deg,_var(--background),_#E8F2EC)] px-4 py-12">
+    <div className="relative flex min-h-screen items-center justify-center bg-[radial-gradient(ellipse_at_top,_rgba(0,114,188,0.18),_transparent_55%),radial-gradient(ellipse_at_bottom_right,_rgba(141,198,63,0.22),_transparent_50%)] px-4 py-12">
       <Suspense fallback={<div className="h-96 w-full max-w-md animate-pulse rounded-[var(--radius-md)] bg-[var(--surface)]" />}>
         <LoginForm />
       </Suspense>

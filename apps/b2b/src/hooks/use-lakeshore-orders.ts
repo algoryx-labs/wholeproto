@@ -8,6 +8,7 @@ import {
   type B2BOrder,
   type Order,
 } from "@westwinds/data";
+import { demoPickupOrders } from "@/lib/pickups";
 import { useOrdersOverlayStore } from "@/stores/orders-overlay-store";
 
 export function useLakeshoreOrders() {
@@ -19,9 +20,10 @@ export function useLakeshoreOrders() {
   });
 
   const orders = useMemo(() => {
-    const seeded = (query.data ?? []).filter(
-      (o): o is B2BOrder => o.channel === "b2b",
-    );
+    const seeded = [
+      ...(query.data ?? []).filter((o): o is B2BOrder => o.channel === "b2b"),
+      ...(query.data ? demoPickupOrders : []),
+    ];
     const overlayIds = new Set(overlay.map((o) => o.id));
     const merged: B2BOrder[] = [
       ...overlay,

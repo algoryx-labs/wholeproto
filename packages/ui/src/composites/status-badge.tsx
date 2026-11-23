@@ -43,6 +43,13 @@ const STATUS_MAP: Record<string, StatusConfig> = {
   overdue: { label: "Overdue", tone: "danger", icon: AlertCircle },
   "on-hold": { label: "On hold", tone: "warning", icon: PauseCircle },
   "in-transit": { label: "In transit", tone: "info", icon: Truck },
+  paid: { label: "Paid", tone: "success", icon: CheckCircle2 },
+  unpaid: { label: "Unpaid", tone: "warning", icon: Clock },
+  "partially-paid": { label: "Partially paid", tone: "info", icon: Clock },
+  scheduled: { label: "Scheduled", tone: "info", icon: Clock },
+  ready: { label: "Ready for pickup", tone: "success", icon: CheckCircle2 },
+  "picked-up": { label: "Picked up", tone: "secondary", icon: CheckCircle2 },
+  "awaiting-approval": { label: "Awaiting approval", tone: "warning", icon: Clock },
 };
 
 function normalizeStatus(status: string): string {

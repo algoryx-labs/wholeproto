@@ -19,7 +19,9 @@ import {
   TableRow,
   Timeline,
 } from "@westwinds/ui";
+import { useLakeshoreBilling } from "@/hooks/use-lakeshore-billing";
 import { useLakeshoreOrders } from "@/hooks/use-lakeshore-orders";
+import { isPickup, warehouseFor } from "@/lib/pickups";
 import { useCartStore } from "@/stores/cart-store";
 import { useOrdersOverlayStore } from "@/stores/orders-overlay-store";
 
@@ -28,10 +30,12 @@ export default function OrderDetailPage() {
   const { orders, isLoading } = useLakeshoreOrders();
   const overlay = useOrdersOverlayStore((s) => s.getOrder(params.id));
   const addLine = useCartStore((s) => s.addLine);
+  const { invoices } = useLakeshoreBilling();
 
   const order =
     overlay ??
     orders.find((o) => o.id === params.id || o.number === params.id);
+  const invoice = order ? invoices.find((i) => i.orderId === order.id) : undefined;
 
   if (isLoading && !order) {
     return <Skeleton className="h-64 w-full" />;
@@ -47,6 +51,9 @@ export default function OrderDetailPage() {
       </div>
     );
   }
+
+  const pickup = isPickup(order) ? order.pickup! : null;
+  const pickupWarehouse = pickup ? warehouseFor(pickup.warehouseId) : null;
 
   const reorder = () => {
     for (const line of order.lines) {
@@ -73,6 +80,13 @@ export default function OrderDetailPage() {
         actions={
           <>
             <StatusBadge status={order.status} />
+            {invoice ? (
+              <Button asChild variant="outline">
+                <Link href={`/billing/invoices/${invoice.id}`}>
+                  Invoice {invoice.number}
+                </Link>
+              </Button>
+            ) : null}
             <Button type="button" variant="soft" onClick={reorder}>
               Reorder
             </Button>
@@ -81,17 +95,63 @@ export default function OrderDetailPage() {
       />
 
       <div className="grid gap-4 lg:grid-cols-3">
-        <SectionCard title="Delivery" className="lg:col-span-1">
+        <SectionCard
+          title={pickup ? "Pickup" : "Delivery"}
+          className="lg:col-span-1"
+          actions={
+            pickup ? (
+              <Button asChild size="sm" variant="ghost">
+                <Link href="/pickups">Manage</Link>
+              </Button>
+            ) : null
+          }
+        >
           <dl className="space-y-2 text-sm">
-            <div>
-              <dt className="text-[var(--muted-foreground)]">Address</dt>
-              <dd className="font-medium">
-                {order.deliveryAddress.line1}
-                <br />
-                {order.deliveryAddress.city}, {order.deliveryAddress.province}{" "}
-                {order.deliveryAddress.postalCode}
-              </dd>
-            </div>
+            {pickup ? (
+              <>
+                <div>
+                  <dt className="text-[var(--muted-foreground)]">Pickup code</dt>
+                  <dd className="font-mono text-lg font-semibold tracking-widest">
+                    {pickup.code}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-[var(--muted-foreground)]">Warehouse</dt>
+                  <dd className="font-medium">
+                    {pickupWarehouse!.name}
+                    <br />
+                    <span className="font-normal text-[var(--muted-foreground)]">
+                      {pickupWarehouse!.address.line1}, {pickupWarehouse!.address.city}
+                    </span>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-[var(--muted-foreground)]">Slot</dt>
+                  <dd className="font-medium">
+                    {formatDate(`${pickup.date}T12:00:00`)} · {pickup.window}
+                  </dd>
+                </div>
+                {pickup.contactName ? (
+                  <div>
+                    <dt className="text-[var(--muted-foreground)]">Picked up by</dt>
+                    <dd>
+                      {pickup.contactName}
+                      {pickup.vehicle ? ` · ${pickup.vehicle}` : ""}
+                    </dd>
+                  </div>
+                ) : null}
+              </>
+            ) : (
+              <div>
+                <dt className="text-[var(--muted-foreground)]">Address</dt>
+                <dd className="font-medium">
+                  {order.deliveryAddress.line1}
+                  <br />
+                  {order.deliveryAddress.city}, {order.deliveryAddress.province}{" "}
+                  {order.deliveryAddress.postalCode}
+                </dd>
+              </div>
+            )}
             {order.deliveryDate ? (
               <div>
                 <dt className="text-[var(--muted-foreground)]">Date</dt>

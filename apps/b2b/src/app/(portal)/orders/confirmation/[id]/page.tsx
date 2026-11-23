@@ -14,6 +14,7 @@ import {
 } from "@westwinds/ui";
 import { useOrdersOverlayStore } from "@/stores/orders-overlay-store";
 import { useLakeshoreOrders } from "@/hooks/use-lakeshore-orders";
+import { isPickup, warehouseFor } from "@/lib/pickups";
 
 export default function OrderConfirmationPage() {
   const params = useParams<{ id: string }>();
@@ -35,6 +36,8 @@ export default function OrderConfirmationPage() {
   }
 
   const pending = order.status === "pending_approval";
+  const pickup = isPickup(order) ? order.pickup! : null;
+  const warehouse = warehouseFor(pickup?.warehouseId ?? order.warehouseId);
 
   return (
     <div className="mx-auto max-w-xl space-y-6 text-center">
@@ -66,7 +69,9 @@ export default function OrderConfirmationPage() {
           description={
             pending
               ? "An Approver or Account admin on Lakeshore Fresh must approve before warehouse picking starts."
-              : "Westwinds has received your order and will stage it at Mississauga Distribution Centre."
+              : pickup
+                ? `Your order will be packed at ${warehouse.name}. Show the pickup code at the dock.`
+                : `Westwinds has received your order and will stage it at ${warehouse.name}.`
           }
         />
         <StatusBadge status={order.status} />
@@ -88,6 +93,28 @@ export default function OrderConfirmationPage() {
               <dd>{order.poNumber}</dd>
             </div>
           ) : null}
+          {pickup ? (
+            <>
+              <div className="flex justify-between gap-4">
+                <dt className="text-[var(--muted-foreground)]">Pickup code</dt>
+                <dd className="font-mono font-semibold tracking-widest">{pickup.code}</dd>
+              </div>
+              <div className="flex justify-between gap-4">
+                <dt className="text-[var(--muted-foreground)]">Pickup slot</dt>
+                <dd className="text-right">
+                  {formatDate(`${pickup.date}T12:00:00`)} · {pickup.window}
+                  <span className="block text-xs text-[var(--muted-foreground)]">
+                    {warehouse.name}, {warehouse.address.line1}
+                  </span>
+                </dd>
+              </div>
+            </>
+          ) : order.deliveryDate ? (
+            <div className="flex justify-between gap-4">
+              <dt className="text-[var(--muted-foreground)]">Delivery</dt>
+              <dd>{formatDate(`${order.deliveryDate}T12:00:00`)}</dd>
+            </div>
+          ) : null}
           <div className="flex justify-between gap-4 border-t border-[var(--border)] pt-3">
             <dt className="text-[var(--muted-foreground)]">Total</dt>
             <dd>
@@ -101,6 +128,11 @@ export default function OrderConfirmationPage() {
         <Button asChild>
           <Link href={`/orders/${order.id}`}>View order</Link>
         </Button>
+        {pickup ? (
+          <Button asChild variant="soft">
+            <Link href="/pickups">View pickups</Link>
+          </Button>
+        ) : null}
         <Button asChild variant="outline">
           <Link href="/catalog">Continue shopping</Link>
         </Button>

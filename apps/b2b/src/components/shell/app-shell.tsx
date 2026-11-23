@@ -4,13 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   ClipboardList,
-  FileText,
   LayoutGrid,
   ListOrdered,
   Package,
   Search,
   ShoppingCart,
   UserRound,
+  Wallet,
+  Warehouse,
   Zap,
 } from "lucide-react";
 import { brand, cn } from "@westwinds/lib";
@@ -32,7 +33,8 @@ const NAV = [
   { href: "/quick-order", label: "Quick order", icon: Zap },
   { href: "/lists", label: "Order lists", icon: ClipboardList },
   { href: "/orders", label: "Orders", icon: ListOrdered },
-  { href: "/invoices", label: "Invoices", icon: FileText },
+  { href: "/pickups", label: "Pickups", icon: Warehouse },
+  { href: "/billing", label: "Billing", icon: Wallet },
   { href: "/account", label: "Account", icon: UserRound },
 ] as const;
 
@@ -48,7 +50,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--surface)]/95 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-[1400px] items-center gap-4 px-4 lg:px-6">
           <Link href="/" className="shrink-0">
-            <Logo size="sm" wordmark={brand.b2bAppName} />
+            <Logo size="sm" src="/logo.png" wordmark={brand.b2bAppName} />
           </Link>
 
           <nav className="hidden items-center gap-0.5 md:flex">
