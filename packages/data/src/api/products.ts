@@ -1,4 +1,4 @@
-import { mockDelay } from "@westwinds/lib";
+import { mockDelay } from "@calgarywholesale/lib";
 import type { Category, Product, ProductStatus, StockHealth } from "../types";
 import { categories } from "../seed/categories";
 import { products, productById, productBySku } from "../seed/products";

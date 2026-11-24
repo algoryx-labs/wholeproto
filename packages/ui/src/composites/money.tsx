@@ -1,5 +1,5 @@
 import * as React from "react";
-import { formatCurrency, formatQty, cn } from "@westwinds/lib";
+import { formatCurrency, formatQty, cn } from "@calgarywholesale/lib";
 
 export interface MoneyProps extends React.HTMLAttributes<HTMLSpanElement> {
   amount: number;

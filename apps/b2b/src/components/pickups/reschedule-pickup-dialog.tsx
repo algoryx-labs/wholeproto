@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import { toast } from "sonner";
-import type { B2BOrder } from "@westwinds/data";
-import { formatDate } from "@westwinds/lib";
+import type { B2BOrder } from "@calgarywholesale/data";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Button,
   Dialog,
@@ -19,7 +19,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { PICKUP_WAREHOUSES, PICKUP_WINDOWS, warehouseFor } from "@/lib/pickups";
 import { useOrdersOverlayStore } from "@/stores/orders-overlay-store";
 import { useSessionStore } from "@/stores/session-store";

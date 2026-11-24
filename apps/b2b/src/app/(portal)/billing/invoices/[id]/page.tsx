@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { brand, formatDate } from "@westwinds/lib";
+import { brand, formatDate } from "@calgarywholesale/lib";
 import {
   Button,
   Money,
@@ -17,7 +17,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { Printer, Wallet } from "lucide-react";
 import { PayInvoicesDialog } from "@/components/billing/pay-invoices-dialog";
 import { useLakeshoreAccount } from "@/hooks/use-lakeshore-account";

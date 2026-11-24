@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ChevronRight } from "lucide-react";
-import { cn } from "@westwinds/lib";
+import { cn } from "@calgarywholesale/lib";
 
 export interface BreadcrumbItem {
   label: string;

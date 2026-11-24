@@ -1,5 +1,5 @@
-import type { PriceGroup, PriceTier, Product } from "@westwinds/data";
-import { brand } from "@westwinds/lib";
+import type { PriceGroup, PriceTier, Product } from "@calgarywholesale/data";
+import { brand } from "@calgarywholesale/lib";
 
 export function applyGroupDiscount(
   listPrice: number,

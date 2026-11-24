@@ -11,8 +11,8 @@ import {
   getStockLevels,
   getWarehouses,
   type Product,
-} from "@westwinds/data";
-import { cn } from "@westwinds/lib";
+} from "@calgarywholesale/data";
+import { cn } from "@calgarywholesale/lib";
 import {
   Button,
   FilterBar,
@@ -28,7 +28,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { LayoutGrid, TableIcon } from "lucide-react";
 import { useLiveStock } from "@/hooks/use-live-stock";
 import { useLakeshoreAccount } from "@/hooks/use-lakeshore-account";

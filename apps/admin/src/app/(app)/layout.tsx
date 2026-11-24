@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { AppShell } from "@/components/shell/app-shell";
-import { Skeleton } from "@westwinds/ui";
+import { Skeleton } from "@calgarywholesale/ui";
 
 export default function AppLayout({
   children,

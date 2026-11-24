@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { Address } from "@westwinds/data";
+import type { Address } from "@calgarywholesale/data";
 import { CHECKOUT_KEY } from "@/lib/constants";
 
 export type PayMethod = "card" | "door";

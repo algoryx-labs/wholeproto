@@ -1,4 +1,4 @@
-import type { PermissionModule } from "@westwinds/data";
+import type { PermissionModule } from "@calgarywholesale/data";
 import {
   Activity,
   Boxes,

@@ -12,8 +12,8 @@ import {
   Store,
   Truck,
 } from "lucide-react";
-import { brand, formatCurrency, cn } from "@westwinds/lib";
-import { Button, Input, Label } from "@westwinds/ui";
+import { brand, formatCurrency, cn } from "@calgarywholesale/lib";
+import { Button, Input, Label } from "@calgarywholesale/ui";
 import { toast } from "sonner";
 import { AddressPickerSheet } from "@/components/address-sheet";
 import { MobileSheet } from "@/components/mobile-sheet";

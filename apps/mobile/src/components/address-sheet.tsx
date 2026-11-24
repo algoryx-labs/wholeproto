@@ -1,8 +1,8 @@
 "use client";
 
-import type { Address } from "@westwinds/data";
+import type { Address } from "@calgarywholesale/data";
 import { Check, MapPin } from "lucide-react";
-import { cn } from "@westwinds/lib";
+import { cn } from "@calgarywholesale/lib";
 import { MobileSheet } from "./mobile-sheet";
 
 export function AddressPickerSheet({

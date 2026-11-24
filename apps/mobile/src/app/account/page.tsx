@@ -14,9 +14,9 @@ import {
   LogOut,
   MapPin,
 } from "lucide-react";
-import { getProducts } from "@westwinds/data";
-import { brand, formatCurrency } from "@westwinds/lib";
-import { Button, ProductImage } from "@westwinds/ui";
+import { getProducts } from "@calgarywholesale/data";
+import { brand, formatCurrency } from "@calgarywholesale/lib";
+import { Button, ProductImage } from "@calgarywholesale/ui";
 import { productImageSrc } from "@/lib/product-image";
 import { AddressPickerSheet } from "@/components/address-sheet";
 import { MobileSheet } from "@/components/mobile-sheet";

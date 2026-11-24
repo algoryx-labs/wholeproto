@@ -7,7 +7,7 @@ import {
   DEMO_B2B_ORDER_NUMBER,
   getOrders,
   warehouseById,
-} from "@westwinds/data";
+} from "@calgarywholesale/data";
 import {
   Badge,
   Money,
@@ -23,7 +23,7 @@ import {
   Tabs,
   TabsList,
   TabsTrigger,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useOrderStore } from "@/stores/order-store";
 
 const channelParser = parseAsStringEnum(["all", "b2b", "b2c"] as const).withDefault(

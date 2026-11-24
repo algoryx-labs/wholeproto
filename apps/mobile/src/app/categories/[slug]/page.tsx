@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronLeft } from "lucide-react";
-import { getCategories, getProducts } from "@westwinds/data";
-import { Skeleton } from "@westwinds/ui";
+import { getCategories, getProducts } from "@calgarywholesale/data";
+import { Skeleton } from "@calgarywholesale/ui";
 import { ProductGrid } from "@/components/product-card";
 
 export default function CategoryDetailPage() {

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Battery, Signal, Wifi } from "lucide-react";
-import { Toaster } from "@westwinds/ui";
+import { Toaster } from "@calgarywholesale/ui";
 import {
   BEZEL,
   FRAME_BREAKPOINT,

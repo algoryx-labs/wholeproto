@@ -4,14 +4,14 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { motion } from "motion/react";
 import { CheckCircle2, Clock } from "lucide-react";
-import { formatDate } from "@westwinds/lib";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Button,
   Money,
   PageHeader,
   SectionCard,
   StatusBadge,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useOrdersOverlayStore } from "@/stores/orders-overlay-store";
 import { useLakeshoreOrders } from "@/hooks/use-lakeshore-orders";
 import { isPickup, warehouseFor } from "@/lib/pickups";

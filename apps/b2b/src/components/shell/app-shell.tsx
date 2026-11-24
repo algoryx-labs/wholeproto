@@ -14,14 +14,14 @@ import {
   Warehouse,
   Zap,
 } from "lucide-react";
-import { brand, cn } from "@westwinds/lib";
+import { brand, cn } from "@calgarywholesale/lib";
 import {
   Badge,
   Button,
   DemoSwitcher,
   Logo,
   Money,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useCartStore } from "@/stores/cart-store";
 import { AccountSwitcher } from "./account-switcher";
 import { CreditStrip } from "./credit-strip";

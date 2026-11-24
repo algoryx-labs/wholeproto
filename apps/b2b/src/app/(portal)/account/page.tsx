@@ -1,6 +1,6 @@
 "use client";
 
-import { formatDate } from "@westwinds/lib";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Badge,
   Input,
@@ -13,7 +13,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useLakeshoreAccount } from "@/hooks/use-lakeshore-account";
 import { useLakeshoreBilling } from "@/hooks/use-lakeshore-billing";
 import { useSessionStore } from "@/stores/session-store";

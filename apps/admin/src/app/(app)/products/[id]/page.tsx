@@ -4,8 +4,8 @@ import * as React from "react";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { categoryById, getProduct } from "@westwinds/data";
-import { formatCurrency } from "@westwinds/lib";
+import { categoryById, getProduct } from "@calgarywholesale/data";
+import { formatCurrency } from "@calgarywholesale/lib";
 import {
   Badge,
   Button,
@@ -21,7 +21,7 @@ import {
   SectionCard,
   Skeleton,
   Switch,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { EMPTY_PRODUCT_OVERLAY, useProductStore } from "@/stores/product-store";
 
 export default function ProductDetailPage() {

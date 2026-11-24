@@ -31,6 +31,6 @@ export const useSessionStore = create<SessionState>()(
         set({ email, roleId, signedIn: true }),
       signOut: () => set({ signedIn: false }),
     }),
-    { name: "ww-admin:session" },
+    { name: "cw-admin:session" },
   ),
 );

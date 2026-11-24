@@ -1,4 +1,4 @@
-# Westwinds Wholesale — Client Prototype Brief
+# Calgary Wholesale — Client Prototype Brief
 
 **Goal:** A clickable, frontend-only Next.js monorepo that demos three connected products for a multi-warehouse grocery wholesaler (Ontario). Show the client a premium experience with realistic data — no backend, no real auth, no live APIs.
 
@@ -6,7 +6,7 @@
 
 ## Business
 
-Westwinds sells groceries through two channels from shared warehouses:
+Calgary Wholesale sells groceries through two channels from shared warehouses:
 
 | Channel | Who | How they buy |
 |---|---|---|
@@ -26,8 +26,8 @@ Westwinds sells groceries through two channels from shared warehouses:
 ```
 apps/
   admin/    # Staff console — inventory, catalog, orders, customers, reports  :3000
-  b2b/      # Westwinds Trade — wholesale buyer portal                        :3001
-  mobile/   # Westwinds — consumer app inside a phone frame on desktop        :3002
+  b2b/      # Calgary Wholesale Cash N Carry — wholesale buyer portal                        :3001
+  mobile/   # Calgary Wholesale — consumer app inside a phone frame on desktop        :3002
 packages/
   ui/       # Design system + shared composites
   data/     # Types, seeded mock data, mock API fetchers
@@ -40,7 +40,7 @@ Shared brand strings live in one constants file so renaming is instant.
 
 ## App 1 — Admin (Cin7-style)
 
-**Users:** Westwinds staff with role simulation (Owner, Operations, Warehouse staff, Sales, Accountant, Support).
+**Users:** Calgary Wholesale staff with role simulation (Owner, Operations, Warehouse staff, Sales, Accountant, Support).
 
 **Must demo:**
 - Multi-warehouse **stock matrix** (product × warehouse cells with health colours)
@@ -57,7 +57,7 @@ Shared brand strings live in one constants file so renaming is instant.
 
 ---
 
-## App 2 — B2B portal (Westwinds Trade)
+## App 2 — B2B portal (Calgary Wholesale Cash N Carry)
 
 **Users:** Wholesale buyers (demo: Lakeshore Fresh Grocers).
 

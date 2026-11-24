@@ -4,7 +4,7 @@ import { Building2, ChevronDown, MapPin } from "lucide-react";
 import {
   lakeshoreCustomer,
   LAKESHORE_CUSTOMER_ID,
-} from "@westwinds/data";
+} from "@calgarywholesale/data";
 import {
   Button,
   DropdownMenu,
@@ -15,7 +15,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import {
   type SessionRole,
   useSessionStore,

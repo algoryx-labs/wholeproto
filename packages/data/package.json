@@ -1,5 +1,5 @@
 {
-  "name": "@westwinds/data",
+  "name": "@calgarywholesale/data",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -12,11 +12,11 @@
   },
   "dependencies": {
     "@faker-js/faker": "^10.6.0",
-    "@westwinds/lib": "workspace:*"
+    "@calgarywholesale/lib": "workspace:*"
   },
   "devDependencies": {
-    "@westwinds/eslint-config": "workspace:*",
-    "@westwinds/typescript-config": "workspace:*",
+    "@calgarywholesale/eslint-config": "workspace:*",
+    "@calgarywholesale/typescript-config": "workspace:*",
     "typescript": "^5.8.3"
   }
 }

@@ -8,7 +8,7 @@ import {
   getStockMatrix,
   getWarehouses,
   productBySku,
-} from "@westwinds/data";
+} from "@calgarywholesale/data";
 import {
   Badge,
   FilterBar,
@@ -26,7 +26,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useInventoryStore, stockKey } from "@/stores/inventory-store";
 import { useSessionStore } from "@/stores/session-store";
 

@@ -30,9 +30,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useQuery } from "@tanstack/react-query";
-import { getProducts, getWarehouses } from "@westwinds/data";
+import { getProducts, getWarehouses } from "@calgarywholesale/data";
 import { searchablePages } from "@/lib/nav";
 import { VIEW_AS_ROLES } from "@/lib/roles";
 import { useSessionStore } from "@/stores/session-store";

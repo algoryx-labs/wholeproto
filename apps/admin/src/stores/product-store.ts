@@ -34,6 +34,6 @@ export const useProductStore = create<ProductState>()(
         })),
       getOverlay: (id) => get().overlays[id] ?? EMPTY_PRODUCT_OVERLAY,
     }),
-    { name: "ww-admin:products" },
+    { name: "cw-admin:products" },
   ),
 );

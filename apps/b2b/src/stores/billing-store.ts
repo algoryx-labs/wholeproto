@@ -37,6 +37,6 @@ export const useBillingStore = create<BillingState>()(
         set((state) => ({ payments: [payment, ...state.payments] })),
       clear: () => set({ payments: [] }),
     }),
-    { name: "ww-b2b:billing" },
+    { name: "cw-b2b:billing" },
   ),
 );

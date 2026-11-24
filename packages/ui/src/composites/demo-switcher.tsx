@@ -7,7 +7,7 @@ import {
   ExternalLink,
   RotateCcw,
 } from "lucide-react";
-import { cn } from "@westwinds/lib";
+import { cn } from "@calgarywholesale/lib";
 import { Button } from "../components/button";
 
 export interface DemoSwitcherProps

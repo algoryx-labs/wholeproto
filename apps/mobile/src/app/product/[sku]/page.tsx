@@ -10,8 +10,8 @@ import {
   getProduct,
   getStockLevels,
   warehouses,
-} from "@westwinds/data";
-import { formatCurrency } from "@westwinds/lib";
+} from "@calgarywholesale/data";
+import { formatCurrency } from "@calgarywholesale/lib";
 import {
   Button,
   ProductImage,
@@ -19,7 +19,7 @@ import {
   Skeleton,
   StockHealth,
   StatusBadge,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { toast } from "sonner";
 import { useCartStore } from "@/stores/cart";
 import { productImageSrc } from "@/lib/product-image";

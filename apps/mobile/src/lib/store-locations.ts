@@ -1,4 +1,4 @@
-import type { Address } from "@westwinds/data";
+import type { Address } from "@calgarywholesale/data";
 
 export interface StoreHours {
   open: string;

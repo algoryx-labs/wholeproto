@@ -1,4 +1,4 @@
-import { HST_RATE } from "@westwinds/data";
+import { HST_RATE } from "@calgarywholesale/data";
 import {
   DELIVERY_FEE,
   FREE_DELIVERY_MIN,

@@ -11,10 +11,10 @@ import {
   Phone,
   Truck,
 } from "lucide-react";
-import type { B2COrder, B2COrderStatus } from "@westwinds/data";
-import { getOrder } from "@westwinds/data";
-import { formatCurrency, cn } from "@westwinds/lib";
-import { Button, ProductImage, Skeleton, StatusBadge } from "@westwinds/ui";
+import type { B2COrder, B2COrderStatus } from "@calgarywholesale/data";
+import { getOrder } from "@calgarywholesale/data";
+import { formatCurrency, cn } from "@calgarywholesale/lib";
+import { Button, ProductImage, Skeleton, StatusBadge } from "@calgarywholesale/ui";
 import { MobileSheet } from "@/components/mobile-sheet";
 import { productImageSrc } from "@/lib/product-image";
 import { useSessionStore } from "@/stores/session";

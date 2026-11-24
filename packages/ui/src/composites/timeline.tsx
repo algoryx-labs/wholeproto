@@ -1,5 +1,5 @@
 import * as React from "react";
-import { formatDate, cn } from "@westwinds/lib";
+import { formatDate, cn } from "@calgarywholesale/lib";
 import { StatusBadge } from "./status-badge";
 
 export interface TimelineItem {

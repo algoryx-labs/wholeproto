@@ -1,5 +1,5 @@
 {
-  "extends": "@westwinds/typescript-config/nextjs.json",
+  "extends": "@calgarywholesale/typescript-config/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

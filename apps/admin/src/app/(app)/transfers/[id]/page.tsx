@@ -8,8 +8,8 @@ import {
   getTransfer,
   productById,
   warehouseById,
-} from "@westwinds/data";
-import { formatDate } from "@westwinds/lib";
+} from "@calgarywholesale/data";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Badge,
   Button,
@@ -23,7 +23,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import {
   stockKey,
   useInventoryStore,

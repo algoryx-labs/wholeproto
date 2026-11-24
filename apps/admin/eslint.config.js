@@ -1,4 +1,4 @@
-import { nextJsConfig } from "@westwinds/eslint-config/next";
+import { nextJsConfig } from "@calgarywholesale/eslint-config/next";
 
 /** @type {import("eslint").Linter.Config[]} */
 export default [...nextJsConfig];

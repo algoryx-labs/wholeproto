@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useSearchParams } from "next/navigation";
-import { DemoSwitcher } from "@westwinds/ui";
+import { DemoSwitcher } from "@calgarywholesale/ui";
 import { adminUrl, b2bUrl, mobileUrl } from "@/lib/env";
 import { useInventoryStore } from "@/stores/inventory-store";
 import { AuthGuard } from "@/components/auth-guard";

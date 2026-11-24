@@ -1,12 +1,12 @@
 {
-  "name": "westwinds",
+  "name": "calgarywholesale",
   "private": true,
   "scripts": {
-    "dev": "pnpm --parallel --filter admin --filter b2b --filter mobile dev",
-    "dev:admin": "pnpm --filter admin dev",
-    "dev:b2b": "pnpm --filter b2b dev",
-    "dev:mobile": "pnpm --filter mobile dev",
-    "build": "pnpm --filter admin --filter b2b --filter mobile build",
+    "dev": "pnpm --parallel --filter @calgarywholesale/admin --filter @calgarywholesale/b2b --filter @calgarywholesale/mobile dev",
+    "dev:admin": "pnpm --filter @calgarywholesale/admin dev",
+    "dev:b2b": "pnpm --filter @calgarywholesale/b2b dev",
+    "dev:mobile": "pnpm --filter @calgarywholesale/mobile dev",
+    "build": "pnpm --filter @calgarywholesale/admin --filter @calgarywholesale/b2b --filter @calgarywholesale/mobile build",
     "lint": "pnpm -r --if-present lint",
     "typecheck": "pnpm -r --if-present typecheck"
   },

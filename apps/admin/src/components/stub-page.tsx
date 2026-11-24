@@ -1,7 +1,7 @@
 "use client";
 
 import type { LucideIcon } from "lucide-react";
-import { EmptyState, PageHeader } from "@westwinds/ui";
+import { EmptyState, PageHeader } from "@calgarywholesale/ui";
 
 export function StubPage({
   title,

@@ -7,8 +7,8 @@ import {
   getOrder,
   getWarehouses,
   warehouseById,
-} from "@westwinds/data";
-import { formatDate } from "@westwinds/lib";
+} from "@calgarywholesale/data";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Badge,
   Button,
@@ -30,7 +30,7 @@ import {
   TableHeader,
   TableRow,
   Timeline,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { nextOrderStatus, useOrderStore } from "@/stores/order-store";
 
 export default function OrderDetailPage() {

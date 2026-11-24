@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { getTransfers, getWarehouses, warehouseById } from "@westwinds/data";
-import { formatDate } from "@westwinds/lib";
+import { getTransfers, getWarehouses, warehouseById } from "@calgarywholesale/data";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Badge,
   Button,
@@ -16,7 +16,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useInventoryStore } from "@/stores/inventory-store";
 
 export default function TransfersPage() {

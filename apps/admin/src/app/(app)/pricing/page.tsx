@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getPriceGroups } from "@westwinds/data";
+import { getPriceGroups } from "@calgarywholesale/data";
 import {
   PageHeader,
   Skeleton,
@@ -11,7 +11,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 export default function PricingPage() {
   const q = useQuery({

@@ -1,5 +1,5 @@
-import type { B2COrder, OrderLine } from "@westwinds/data";
-import { HST_RATE } from "@westwinds/data";
+import type { B2COrder, OrderLine } from "@calgarywholesale/data";
+import { HST_RATE } from "@calgarywholesale/data";
 import { calcCartTotals, round2 } from "@/lib/cart-math";
 import type { CartLine } from "@/stores/cart";
 import type { CheckoutDraft } from "@/stores/checkout";

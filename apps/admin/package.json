@@ -1,5 +1,5 @@
 {
-  "name": "admin",
+  "name": "@calgarywholesale/admin",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.103.1",
-    "@westwinds/data": "workspace:*",
-    "@westwinds/lib": "workspace:*",
-    "@westwinds/ui": "workspace:*",
+    "@calgarywholesale/data": "workspace:*",
+    "@calgarywholesale/lib": "workspace:*",
+    "@calgarywholesale/ui": "workspace:*",
     "date-fns": "^4.4.0",
     "lucide-react": "^0.511.0",
     "motion": "^13.4.0",
@@ -32,8 +32,8 @@
     "@types/papaparse": "^5.5.2",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
-    "@westwinds/eslint-config": "workspace:*",
-    "@westwinds/typescript-config": "workspace:*",
+    "@calgarywholesale/eslint-config": "workspace:*",
+    "@calgarywholesale/typescript-config": "workspace:*",
     "eslint": "^9.28.0",
     "tailwindcss": "^4.1.8",
     "typescript": "^5.8.3"

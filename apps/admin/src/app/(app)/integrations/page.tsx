@@ -3,8 +3,8 @@
 import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { getQuickBooksLogs } from "@westwinds/data";
-import { formatDate } from "@westwinds/lib";
+import { getQuickBooksLogs } from "@calgarywholesale/data";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Button,
   Card,
@@ -21,7 +21,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 export default function IntegrationsPage() {
   const [syncing, setSyncing] = React.useState(false);

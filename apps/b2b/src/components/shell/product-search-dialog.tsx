@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { getProducts } from "@westwinds/data";
+import { getProducts } from "@calgarywholesale/data";
 import {
   Dialog,
   DialogContent,
@@ -12,8 +12,8 @@ import {
   Input,
   ProductImage,
   Skeleton,
-} from "@westwinds/ui";
-import { categoryById } from "@westwinds/data";
+} from "@calgarywholesale/ui";
+import { categoryById } from "@calgarywholesale/data";
 
 export function ProductSearchDialog({
   open,

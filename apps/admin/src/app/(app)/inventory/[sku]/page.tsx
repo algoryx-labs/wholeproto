@@ -8,8 +8,8 @@ import {
   getWarehouses,
   stockMovements,
   warehouseById,
-} from "@westwinds/data";
-import { formatDate } from "@westwinds/lib";
+} from "@calgarywholesale/data";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Badge,
   Card,
@@ -28,7 +28,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useInventoryStore, stockKey } from "@/stores/inventory-store";
 
 export default function InventorySkuPage() {

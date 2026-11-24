@@ -11,7 +11,7 @@ import {
   HONEYCRISP_SKU,
   productById,
   type Transfer,
-} from "@westwinds/data";
+} from "@calgarywholesale/data";
 import {
   Button,
   Card,
@@ -25,7 +25,7 @@ import {
   SelectTrigger,
   SelectValue,
   Skeleton,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useInventoryStore } from "@/stores/inventory-store";
 import { useSessionStore } from "@/stores/session-store";
 

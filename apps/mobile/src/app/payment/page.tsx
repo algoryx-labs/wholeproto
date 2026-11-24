@@ -10,8 +10,8 @@ import {
   Lock,
   ShieldCheck,
 } from "lucide-react";
-import { brand, formatCurrency, cn } from "@westwinds/lib";
-import { Button, Input, Label } from "@westwinds/ui";
+import { brand, formatCurrency, cn } from "@calgarywholesale/lib";
+import { Button, Input, Label } from "@calgarywholesale/ui";
 import { toast } from "sonner";
 import { calcCartTotals } from "@/lib/cart-math";
 import { buildLocalOrder } from "@/lib/place-order";

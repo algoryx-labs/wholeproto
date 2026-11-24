@@ -6,7 +6,7 @@ import {
   type B2BOrder,
   type OrderLine,
   type Warehouse,
-} from "@westwinds/data";
+} from "@calgarywholesale/data";
 
 export const PICKUP_WINDOWS = [
   "7:00–9:00 am",

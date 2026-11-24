@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { formatDate } from "@westwinds/lib";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Button,
   PageHeader,
   SectionCard,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { ListChecks } from "lucide-react";
 import { SAVED_LISTS } from "@/lib/saved-lists";
 

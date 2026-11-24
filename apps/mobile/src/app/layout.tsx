@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
-import { brand } from "@westwinds/lib";
+import { brand } from "@calgarywholesale/lib";
 import { Providers } from "@/components/providers";
 import { AppChrome } from "@/components/app-chrome";
 import "./globals.css";

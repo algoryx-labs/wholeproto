@@ -2,8 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 import Papa from "papaparse";
-import { getDailySales } from "@westwinds/data";
-import { formatCurrency, formatDate } from "@westwinds/lib";
+import { getDailySales } from "@calgarywholesale/data";
+import { formatCurrency, formatDate } from "@calgarywholesale/lib";
 import {
   Button,
   Money,
@@ -15,7 +15,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 export default function ReportsPage() {
   const salesQ = useQuery({

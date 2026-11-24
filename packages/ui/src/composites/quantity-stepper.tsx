@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Minus, Plus } from "lucide-react";
-import { cn } from "@westwinds/lib";
+import { cn } from "@calgarywholesale/lib";
 import { Button } from "../components/button";
 import { Input } from "../components/input";
 

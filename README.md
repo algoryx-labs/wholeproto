@@ -1,12 +1,12 @@
-# Westwinds Wholesale — Frontend Prototype
+# Calgary Wholesale — Frontend Prototype
 
 Clickable, frontend-only demo of three connected products for a multi-warehouse grocery wholesaler (Ontario, CAD, HST 13%).
 
 | App | Folder | Port | Command |
 |---|---|---|---|
 | **Admin** (Cin7-style inventory + orders + listings) | `apps/admin` | 3000 | `pnpm dev:admin` |
-| **Westwinds Trade** (B2B portal) | `apps/b2b` | 3001 | `pnpm dev:b2b` |
-| **Westwinds** (B2C mobile) | `apps/mobile` | 3002 | `pnpm dev:mobile` |
+| **Calgary Wholesale Cash N Carry** (B2B portal) | `apps/b2b` | 3001 | `pnpm dev:b2b` |
+| **Calgary Wholesale** (B2C mobile) | `apps/mobile` | 3002 | `pnpm dev:mobile` |
 
 ```bash
 pnpm install
@@ -16,7 +16,7 @@ pnpm build
 ```
 
 Detailed client brief: [`PROTOTYPE-BRIEF.md`](./PROTOTYPE-BRIEF.md)  
-Full engineering prompt: [`westwinds-prototype-cursor-prompt.md`](./westwinds-prototype-cursor-prompt.md)
+Full engineering prompt: [`calgarywholesale-prototype-cursor-prompt.md`](./calgarywholesale-prototype-cursor-prompt.md)
 
 ## Demo credentials
 
@@ -36,9 +36,9 @@ Full engineering prompt: [`westwinds-prototype-cursor-prompt.md`](./westwinds-pr
 
 ## Shared packages
 
-- `@westwinds/ui` — design tokens + components (signature: `StockHealth`)
-- `@westwinds/data` — types, seeded Ontario grocery data, mock API delays
-- `@westwinds/lib` — brand constants, `formatCurrency`, `cn`
+- `@calgarywholesale/ui` — design tokens + components (signature: `StockHealth`)
+- `@calgarywholesale/data` — types, seeded Ontario grocery data, mock API delays
+- `@calgarywholesale/lib` — brand constants, `formatCurrency`, `cn`
 
 Key seed IDs: Lakeshore `b2b-lakeshore`, Honeycrisp `WW-PRD-10231`, order `WW-B-10482`.
 

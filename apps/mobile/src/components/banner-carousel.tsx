@@ -3,8 +3,8 @@
 import * as React from "react";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
-import type { Banner } from "@westwinds/data";
-import { cn } from "@westwinds/lib";
+import type { Banner } from "@calgarywholesale/data";
+import { cn } from "@calgarywholesale/lib";
 
 function hrefFor(banner: Banner) {
   return banner.ctaHref

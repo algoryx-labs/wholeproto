@@ -4,8 +4,8 @@ import * as React from "react";
 import Link from "next/link";
 import Papa from "papaparse";
 import { subDays } from "date-fns";
-import type { Invoice } from "@westwinds/data";
-import { cn, formatCurrency, formatDate } from "@westwinds/lib";
+import type { Invoice } from "@calgarywholesale/data";
+import { cn, formatCurrency, formatDate } from "@calgarywholesale/lib";
 import {
   Badge,
   Button,
@@ -32,7 +32,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { Download, FileText, Wallet } from "lucide-react";
 import { PayInvoicesDialog } from "@/components/billing/pay-invoices-dialog";
 import { useLakeshoreBilling } from "@/hooks/use-lakeshore-billing";

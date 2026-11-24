@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Money, Skeleton } from "@westwinds/ui";
+import { Money, Skeleton } from "@calgarywholesale/ui";
 import { useLakeshoreAccount } from "@/hooks/use-lakeshore-account";
 import { useLakeshoreBilling } from "@/hooks/use-lakeshore-billing";
 

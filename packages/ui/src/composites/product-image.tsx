@@ -14,7 +14,7 @@ import {
   WrapText,
   type LucideIcon,
 } from "lucide-react";
-import { cn } from "@westwinds/lib";
+import { cn } from "@calgarywholesale/lib";
 
 export const CATEGORY_TINTS: Record<string, string> = {
   "Large Bags": "#E8F5EC",

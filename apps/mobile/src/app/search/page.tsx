@@ -4,12 +4,12 @@ import * as React from "react";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronLeft, Search, X } from "lucide-react";
-import { getCategories, getProducts } from "@westwinds/data";
-import { Input, Skeleton } from "@westwinds/ui";
+import { getCategories, getProducts } from "@calgarywholesale/data";
+import { Input, Skeleton } from "@calgarywholesale/ui";
 import { ProductGrid } from "@/components/product-card";
 
 const POPULAR = ["Cups", "Bags", "Napkins", "Cutlery", "Clamshell", "Gloves"];
-const RECENT_KEY = "ww-mobile:recent-searches";
+const RECENT_KEY = "cw-mobile:recent-searches";
 
 function useDebounced(value: string, ms = 280) {
   const [v, setV] = React.useState(value);

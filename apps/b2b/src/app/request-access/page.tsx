@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
-import { brand } from "@westwinds/lib";
+import { brand } from "@calgarywholesale/lib";
 import {
   Button,
   Card,
@@ -15,7 +15,7 @@ import {
   Label,
   Logo,
   Textarea,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 const STEPS = ["Business", "Locations", "Buyers", "Review"] as const;
 

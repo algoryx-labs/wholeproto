@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "@westwinds/lib";
+import { cn } from "@calgarywholesale/lib";
 import {
   Card,
   CardContent,

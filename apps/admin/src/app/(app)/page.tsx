@@ -14,8 +14,8 @@ import {
   HONEYCRISP_SKU,
   productById,
   warehouseById,
-} from "@westwinds/data";
-import { formatCurrency } from "@westwinds/lib";
+} from "@calgarywholesale/data";
+import { formatCurrency } from "@calgarywholesale/lib";
 import {
   Badge,
   Card,
@@ -35,7 +35,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useSessionStore } from "@/stores/session-store";
 import { useInventoryStore, stockKey } from "@/stores/inventory-store";
 import { useOrderStore } from "@/stores/order-store";

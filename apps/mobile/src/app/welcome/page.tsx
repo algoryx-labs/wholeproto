@@ -3,8 +3,8 @@
 import * as React from "react";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
-import { brand, cn } from "@westwinds/lib";
-import { Button, Logo } from "@westwinds/ui";
+import { brand, cn } from "@calgarywholesale/lib";
+import { Button, Logo } from "@calgarywholesale/ui";
 
 const SLIDES = [
   {

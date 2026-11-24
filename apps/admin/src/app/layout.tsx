@@ -1,8 +1,8 @@
 import { Providers } from "@/components/providers";
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
-import { brand } from "@westwinds/lib";
-import { InteractionEffects } from "@westwinds/ui";
+import { brand } from "@calgarywholesale/lib";
+import { InteractionEffects } from "@calgarywholesale/ui";
 import "./globals.css";
 
 const inter = Inter({

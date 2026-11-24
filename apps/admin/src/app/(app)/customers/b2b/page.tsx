@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import {
   getB2BCustomers,
   LAKESHORE_CUSTOMER_ID,
-} from "@westwinds/data";
+} from "@calgarywholesale/data";
 import {
   Badge,
   Money,
@@ -18,7 +18,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 export default function B2BCustomersPage() {
   const customersQ = useQuery({

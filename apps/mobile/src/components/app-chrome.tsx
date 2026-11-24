@@ -13,8 +13,8 @@ import {
   UserRound,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { cn } from "@westwinds/lib";
-import { ProductImage } from "@westwinds/ui";
+import { cn } from "@calgarywholesale/lib";
+import { ProductImage } from "@calgarywholesale/ui";
 import { TAB_BAR_H } from "@/lib/constants";
 import { useCartStore } from "@/stores/cart";
 import { useSessionStore } from "@/stores/session";

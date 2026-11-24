@@ -3,8 +3,8 @@
 import * as React from "react";
 import Link from "next/link";
 import { toast } from "sonner";
-import type { B2BOrder } from "@westwinds/data";
-import { formatDate } from "@westwinds/lib";
+import type { B2BOrder } from "@calgarywholesale/data";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Button,
   Card,
@@ -21,7 +21,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { CalendarClock, MapPin, Navigation, UserRound, Warehouse } from "lucide-react";
 import { ReschedulePickupDialog } from "@/components/pickups/reschedule-pickup-dialog";
 import { useLakeshoreOrders } from "@/hooks/use-lakeshore-orders";

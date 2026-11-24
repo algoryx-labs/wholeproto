@@ -1,6 +1,6 @@
 "use client";
 
-import type { B2BOrderStatus, B2COrderStatus, Channel } from "@westwinds/data";
+import type { B2BOrderStatus, B2COrderStatus, Channel } from "@calgarywholesale/data";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -81,6 +81,6 @@ export const useOrderStore = create<OrderState>()(
         get().warehouseOverrides[id] ?? fallback,
       getExtraHistory: (id) => get().historyAppends[id] ?? [],
     }),
-    { name: "ww-admin:orders" },
+    { name: "cw-admin:orders" },
   ),
 );

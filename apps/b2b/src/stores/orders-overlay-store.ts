@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { B2BOrder } from "@westwinds/data";
+import type { B2BOrder } from "@calgarywholesale/data";
 
 interface OrdersOverlayState {
   orders: B2BOrder[];
@@ -25,6 +25,6 @@ export const useOrdersOverlayStore = create<OrdersOverlayState>()(
         ),
       clear: () => set({ orders: [] }),
     }),
-    { name: "ww-b2b:orders" },
+    { name: "cw-b2b:orders" },
   ),
 );

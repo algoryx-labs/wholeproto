@@ -1,4 +1,4 @@
-import { mockDelay } from "@westwinds/lib";
+import { mockDelay } from "@calgarywholesale/lib";
 import type { StockLevel, Transfer } from "../types";
 import {
   getStockMatrixRows,

@@ -1,13 +1,13 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getBanners } from "@westwinds/data";
+import { getBanners } from "@calgarywholesale/data";
 import {
   Badge,
   PageHeader,
   SectionCard,
   Skeleton,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 export default function StorefrontPage() {
   const bannersQ = useQuery({

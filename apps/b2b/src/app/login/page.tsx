@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { brand } from "@westwinds/lib";
+import { brand } from "@calgarywholesale/lib";
 import {
   Button,
   Card,
@@ -14,7 +14,7 @@ import {
   Input,
   Label,
   Logo,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useSessionStore } from "@/stores/session-store";
 import { Suspense } from "react";
 

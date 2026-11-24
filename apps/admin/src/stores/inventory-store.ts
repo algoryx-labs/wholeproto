@@ -1,6 +1,6 @@
 "use client";
 
-import type { Transfer, TransferLine } from "@westwinds/data";
+import type { Transfer, TransferLine } from "@calgarywholesale/data";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -161,7 +161,7 @@ export const useInventoryStore = create<InventoryState>()(
           receivedTransferIds: [],
         }),
     }),
-    { name: "ww-admin:inventory" },
+    { name: "cw-admin:inventory" },
   ),
 );
 

@@ -4,8 +4,8 @@ import * as React from "react";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { Mic, Search } from "lucide-react";
-import { getCategories, getProducts, type Product } from "@westwinds/data";
-import { CATEGORY_TINTS, ProductImage, Skeleton } from "@westwinds/ui";
+import { getCategories, getProducts, type Product } from "@calgarywholesale/data";
+import { CATEGORY_TINTS, ProductImage, Skeleton } from "@calgarywholesale/ui";
 import { productImageSrc } from "@/lib/product-image";
 
 export default function CategoriesPage() {

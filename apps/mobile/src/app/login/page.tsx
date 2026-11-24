@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { consumers } from "@westwinds/data";
-import { brand } from "@westwinds/lib";
-import { Button, Input, Label } from "@westwinds/ui";
+import { consumers } from "@calgarywholesale/data";
+import { brand } from "@calgarywholesale/lib";
+import { Button, Input, Label } from "@calgarywholesale/ui";
 import { toast } from "sonner";
 import { AddressPickerSheet } from "@/components/address-sheet";
 import { useSessionStore } from "@/stores/session";

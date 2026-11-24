@@ -4,7 +4,7 @@ import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import Papa from "papaparse";
 import { toast } from "sonner";
-import { getProducts, type Product } from "@westwinds/data";
+import { getProducts, type Product } from "@calgarywholesale/data";
 import {
   Badge,
   Button,
@@ -19,7 +19,7 @@ import {
   TableHeader,
   TableRow,
   Textarea,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { FileUp, Plus, Trash2 } from "lucide-react";
 import { useLakeshoreAccount } from "@/hooks/use-lakeshore-account";
 import { casePriceForProduct } from "@/lib/pricing";

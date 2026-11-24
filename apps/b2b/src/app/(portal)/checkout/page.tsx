@@ -9,8 +9,8 @@ import {
   lakeshoreCustomer,
   type B2BOrder,
   type OrderLine,
-} from "@westwinds/data";
-import { brand } from "@westwinds/lib";
+} from "@calgarywholesale/data";
+import { brand } from "@calgarywholesale/lib";
 import {
   Button,
   Input,
@@ -24,7 +24,7 @@ import {
   SelectTrigger,
   SelectValue,
   Textarea,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { AlertTriangle } from "lucide-react";
 import { newPickupCode, PICKUP_WAREHOUSES, PICKUP_WINDOWS } from "@/lib/pickups";
 import { orderTotals } from "@/lib/pricing";

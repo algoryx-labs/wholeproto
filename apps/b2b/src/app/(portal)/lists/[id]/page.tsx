@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { getProducts } from "@westwinds/data";
-import { formatDate } from "@westwinds/lib";
+import { getProducts } from "@calgarywholesale/data";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Button,
   EmptyState,
@@ -18,7 +18,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useLakeshoreAccount } from "@/hooks/use-lakeshore-account";
 import { casePriceForProduct } from "@/lib/pricing";
 import { getSavedList } from "@/lib/saved-lists";

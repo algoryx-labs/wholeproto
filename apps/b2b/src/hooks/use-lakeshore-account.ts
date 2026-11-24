@@ -7,7 +7,7 @@ import {
   LAKESHORE_CUSTOMER_ID,
   lakeshoreCustomer,
   type PriceGroup,
-} from "@westwinds/data";
+} from "@calgarywholesale/data";
 
 export function useLakeshoreAccount() {
   const customerQuery = useQuery({

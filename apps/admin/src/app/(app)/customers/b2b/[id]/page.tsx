@@ -7,8 +7,8 @@ import {
   getOrders,
   getPriceGroups,
   LAKESHORE_CUSTOMER_ID,
-} from "@westwinds/data";
-import { formatCurrency, formatDate } from "@westwinds/lib";
+} from "@calgarywholesale/data";
+import { formatCurrency, formatDate } from "@calgarywholesale/lib";
 import {
   Badge,
   KeyValueList,
@@ -23,7 +23,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 export default function B2BCustomerDetailPage() {
   const params = useParams<{ id: string }>();

@@ -1,8 +1,8 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getAdminUsers, getRoles } from "@westwinds/data";
-import { formatDate } from "@westwinds/lib";
+import { getAdminUsers, getRoles } from "@calgarywholesale/data";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Badge,
   PageHeader,
@@ -14,7 +14,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 export default function UsersPage() {
   const usersQ = useQuery({

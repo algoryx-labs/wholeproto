@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { toast } from "sonner";
-import { formatDate } from "@westwinds/lib";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Button,
   Money,
@@ -18,7 +18,7 @@ import {
   TableHeader,
   TableRow,
   Timeline,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useLakeshoreBilling } from "@/hooks/use-lakeshore-billing";
 import { useLakeshoreOrders } from "@/hooks/use-lakeshore-orders";
 import { isPickup, warehouseFor } from "@/lib/pickups";

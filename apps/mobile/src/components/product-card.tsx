@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { Heart, Minus, Plus, Timer } from "lucide-react";
-import type { Product } from "@westwinds/data";
-import { formatCurrency, cn } from "@westwinds/lib";
-import { ProductImage } from "@westwinds/ui";
+import type { Product } from "@calgarywholesale/data";
+import { formatCurrency, cn } from "@calgarywholesale/lib";
+import { ProductImage } from "@calgarywholesale/ui";
 import { useCartStore } from "@/stores/cart";
 import { productImageSrc } from "@/lib/product-image";
 

@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { Address, B2COrder, Consumer } from "@westwinds/data";
+import type { Address, B2COrder, Consumer } from "@calgarywholesale/data";
 import { SESSION_KEY } from "@/lib/constants";
 
 export interface SessionState {

@@ -7,7 +7,7 @@ import {
   getProducts,
   getStockLevels,
   getWarehouses,
-} from "@westwinds/data";
+} from "@calgarywholesale/data";
 import {
   Badge,
   Money,
@@ -22,7 +22,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useProductStore } from "@/stores/product-store";
 import { useInventoryStore, stockKey } from "@/stores/inventory-store";
 

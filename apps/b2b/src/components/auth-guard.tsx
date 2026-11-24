@@ -3,7 +3,7 @@
 import * as React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useSessionStore } from "@/stores/session-store";
-import { Skeleton } from "@westwinds/ui";
+import { Skeleton } from "@calgarywholesale/ui";
 
 export function AuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();

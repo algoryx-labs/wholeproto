@@ -1,13 +1,13 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getRoles } from "@westwinds/data";
+import { getRoles } from "@calgarywholesale/data";
 import {
   Badge,
   PageHeader,
   SectionCard,
   Skeleton,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 export default function RolesPage() {
   const q = useQuery({

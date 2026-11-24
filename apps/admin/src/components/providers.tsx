@@ -3,7 +3,7 @@
 import * as React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
-import { Toaster, TooltipProvider } from "@westwinds/ui";
+import { Toaster, TooltipProvider } from "@calgarywholesale/ui";
 
 function makeQueryClient() {
   return new QueryClient({

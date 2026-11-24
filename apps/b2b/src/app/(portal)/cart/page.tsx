@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { getProducts, getStockLevels } from "@westwinds/data";
+import { getProducts, getStockLevels } from "@calgarywholesale/data";
 import {
   Button,
   EmptyState,
@@ -17,11 +17,11 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { ShoppingCart, Trash2 } from "lucide-react";
 import { useLakeshoreAccount } from "@/hooks/use-lakeshore-account";
 import { orderTotals, tierSavingsNote } from "@/lib/pricing";
-import { brand } from "@westwinds/lib";
+import { brand } from "@calgarywholesale/lib";
 import { useCartStore } from "@/stores/cart-store";
 
 export default function CartPage() {

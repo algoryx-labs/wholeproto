@@ -8,7 +8,7 @@ import {
   XCircle,
   type LucideIcon,
 } from "lucide-react";
-import { cn } from "@westwinds/lib";
+import { cn } from "@calgarywholesale/lib";
 import { Badge, type BadgeProps } from "../components/badge";
 
 type StatusTone = NonNullable<BadgeProps["variant"]>;

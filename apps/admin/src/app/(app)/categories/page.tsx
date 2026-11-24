@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { Tags } from "lucide-react";
-import { getCategories } from "@westwinds/data";
+import { getCategories } from "@calgarywholesale/data";
 import {
   PageHeader,
   Skeleton,
@@ -12,7 +12,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 export default function CategoriesPage() {
   const q = useQuery({

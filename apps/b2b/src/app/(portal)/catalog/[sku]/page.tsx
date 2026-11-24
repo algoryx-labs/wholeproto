@@ -10,7 +10,7 @@ import {
   getProduct,
   getStockLevels,
   getWarehouses,
-} from "@westwinds/data";
+} from "@calgarywholesale/data";
 import {
   Button,
   Money,
@@ -25,7 +25,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { useLakeshoreAccount } from "@/hooks/use-lakeshore-account";
 import { applyGroupDiscount, casePriceForProduct } from "@/lib/pricing";
 import { useCartStore } from "@/stores/cart-store";

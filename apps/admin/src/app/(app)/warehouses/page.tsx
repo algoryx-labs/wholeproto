@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getWarehouses } from "@westwinds/data";
+import { getWarehouses } from "@calgarywholesale/data";
 import {
   Badge,
   Card,
@@ -10,7 +10,7 @@ import {
   CardTitle,
   PageHeader,
   Skeleton,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 export default function WarehousesPage() {
   const warehousesQ = useQuery({

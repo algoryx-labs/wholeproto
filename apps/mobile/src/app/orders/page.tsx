@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { Clock3, MapPin, Store } from "lucide-react";
-import type { B2COrder } from "@westwinds/data";
-import { getOrders } from "@westwinds/data";
-import { formatCurrency, formatDate, cn } from "@westwinds/lib";
+import type { B2COrder } from "@calgarywholesale/data";
+import { getOrders } from "@calgarywholesale/data";
+import { formatCurrency, formatDate, cn } from "@calgarywholesale/lib";
 import {
   Skeleton,
   StatusBadge,
@@ -13,7 +13,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { isPickupOrder } from "@/lib/place-order";
 import {
   nearestStore,

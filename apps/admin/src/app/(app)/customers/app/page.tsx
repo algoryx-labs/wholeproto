@@ -1,8 +1,8 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getConsumers } from "@westwinds/data";
-import { formatDate } from "@westwinds/lib";
+import { getConsumers } from "@calgarywholesale/data";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   PageHeader,
   Skeleton,
@@ -12,7 +12,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 export default function AppCustomersPage() {
   const consumersQ = useQuery({

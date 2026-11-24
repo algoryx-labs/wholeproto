@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { formatCurrency, formatDate } from "@westwinds/lib";
-import { getPromotions } from "@westwinds/data";
+import { formatCurrency, formatDate } from "@calgarywholesale/lib";
+import { getPromotions } from "@calgarywholesale/data";
 import {
   Button,
   Money,
@@ -11,7 +11,7 @@ import {
   SectionCard,
   Skeleton,
   StatusBadge,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { Megaphone, RefreshCw, Warehouse as WarehouseIcon } from "lucide-react";
 import { useLakeshoreAccount } from "@/hooks/use-lakeshore-account";
 import { useLakeshoreBilling } from "@/hooks/use-lakeshore-billing";

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { brand } from "@westwinds/lib";
+import { brand } from "@calgarywholesale/lib";
 import {
   Button,
   Card,
@@ -13,7 +13,7 @@ import {
   Input,
   Label,
   Logo,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { VIEW_AS_ROLES } from "@/lib/roles";
 import { useSessionStore } from "@/stores/session-store";
 

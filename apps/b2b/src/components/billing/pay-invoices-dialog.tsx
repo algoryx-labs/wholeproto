@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import { toast } from "sonner";
-import type { Invoice } from "@westwinds/data";
-import { formatCurrency, formatDate, sleep } from "@westwinds/lib";
+import type { Invoice } from "@calgarywholesale/data";
+import { formatCurrency, formatDate, sleep } from "@calgarywholesale/lib";
 import {
   Button,
   Dialog,
@@ -20,7 +20,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { nextPaymentReference, PAYMENT_METHODS, round2 } from "@/lib/billing";
 import {
   type PaymentMethod,

@@ -1,11 +1,11 @@
-# Westwinds Wholesale — Frontend Prototype Monorepo
+# Calgary Wholesale — Frontend Prototype Monorepo
 ### Build brief for Cursor (frontend only, mock data, client demo)
 
 ---
 
 ## 0. Your role and the goal
 
-You are a senior frontend engineer with a strong product-design eye. Build a **clickable, frontend-only prototype** of three connected products for **Westwinds Wholesale**, a grocery wholesaler in Ontario, Canada. It will be shown to the client in a sales/approval meeting, so it must *feel like a finished product*: realistic data, smooth interactions, loading states, empty states, and a premium light UI.
+You are a senior frontend engineer with a strong product-design eye. Build a **clickable, frontend-only prototype** of three connected products for **Calgary Wholesale**, a grocery wholesaler in Ontario, Canada. It will be shown to the client in a sales/approval meeting, so it must *feel like a finished product*: realistic data, smooth interactions, loading states, empty states, and a premium light UI.
 
 There is **no backend, no database, no real auth, no real API calls**. Every screen runs on deterministic mock data and client-side state. Structure the code so a real API can replace the mock layer later without rewriting screens.
 
@@ -13,9 +13,9 @@ The three apps:
 
 | App | Folder | Who uses it | Port |
 |---|---|---|---|
-| Westwinds Admin | `apps/admin` | Westwinds staff: inventory across all warehouses (Cin7-style), products & listings, pricing, B2B + B2C orders, customers, reports, users & roles | 3000 |
-| Westwinds Trade (B2B portal) | `apps/b2b` | Wholesale customers (grocery stores, restaurants, cafés) placing case orders | 3001 |
-| Westwinds (B2C app) | `apps/mobile` | Consumers ordering groceries from their phone. Rendered **inside a phone frame** on desktop | 3002 |
+| Calgary Wholesale Admin | `apps/admin` | Calgary Wholesale staff: inventory across all warehouses (Cin7-style), products & listings, pricing, B2B + B2C orders, customers, reports, users & roles | 3000 |
+| Calgary Wholesale Cash N Carry (B2B portal) | `apps/b2b` | Wholesale customers (grocery stores, restaurants, cafés) placing case orders | 3001 |
+| Calgary Wholesale (B2C app) | `apps/mobile` | Consumers ordering groceries from their phone. Rendered **inside a phone frame** on desktop | 3002 |
 
 Put all brand strings (company name, app names, support email, phone) in one constants file so they can be renamed in seconds.
 
@@ -23,7 +23,7 @@ Put all brand strings (company name, app names, support email, phone) in one con
 
 ## 1. Business context (use this to make content realistic)
 
-- Westwinds runs **4 warehouses** in Ontario: Mississauga Distribution Centre (main), Brampton Warehouse, Etobicoke Cross-Dock, Hamilton Depot.
+- Calgary Wholesale runs **4 warehouses** in Ontario: Mississauga Distribution Centre (main), Brampton Warehouse, Etobicoke Cross-Dock, Hamilton Depot.
 - B2B customers buy **by the case**, have **price groups / tiered pricing**, **credit limits**, **Net 15 / Net 30 terms**, multiple store locations, and multiple staff users with different permissions.
 - B2C customers buy **by the unit** through the mobile app with scheduled delivery slots.
 - Currency is **CAD**. Format with `Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' })`. Tax is **HST 13%**. Dates like `Sep 14, 2026`. Use Canadian spelling where natural (Centre, colour, cheque).
@@ -54,7 +54,7 @@ Use the latest stable versions at install time. Do not add libraries beyond this
 - **Motion:** `motion` (import from `motion/react`)
 - **Tables:** @tanstack/react-table
 - **Data fetching (mocked):** @tanstack/react-query, with fetchers that return mock data after a simulated delay
-- **Client state:** zustand with `persist` middleware (cart, created orders, transfers, edits), storage keys prefixed per app (`ww-admin:*`, `ww-b2b:*`, `ww-mobile:*`)
+- **Client state:** zustand with `persist` middleware (cart, created orders, transfers, edits), storage keys prefixed per app (`cw-admin:*`, `cw-b2b:*`, `cw-mobile:*`)
 - **URL state for filters:** nuqs
 - **Forms:** react-hook-form + zod
 - **Charts:** shadcn chart components (Recharts)
@@ -71,7 +71,7 @@ Use the latest stable versions at install time. Do not add libraries beyond this
 ## 3. Monorepo structure
 
 ```
-westwinds/
+calgarywholesale/
 ├─ apps/
 │  ├─ admin/                 # Next.js app, port 3000
 │  │  └─ src/
@@ -87,9 +87,9 @@ westwinds/
 │        │  └─ phone-frame/  # device frame + context (see §8.1)
 │        └─ stores/
 ├─ packages/
-│  ├─ ui/                    # @westwinds/ui — shadcn components + shared composites + globals.css with tokens
-│  ├─ data/                  # @westwinds/data — types, seeded datasets, mock API fetchers
-│  ├─ lib/                   # @westwinds/lib — cn(), formatCurrency, formatDate, formatQty, sleep, brand constants
+│  ├─ ui/                    # @calgarywholesale/ui — shadcn components + shared composites + globals.css with tokens
+│  ├─ data/                  # @calgarywholesale/data — types, seeded datasets, mock API fetchers
+│  ├─ lib/                   # @calgarywholesale/lib — cn(), formatCurrency, formatDate, formatQty, sleep, brand constants
 │  ├─ eslint-config/
 │  └─ typescript-config/
 ├─ turbo.json
@@ -112,7 +112,7 @@ Root scripts:
 ```
 
 Setup requirements:
-- Each app's `next.config` must include `transpilePackages: ['@westwinds/ui', '@westwinds/data', '@westwinds/lib']`.
+- Each app's `next.config` must include `transpilePackages: ['@calgarywholesale/ui', '@calgarywholesale/data', '@calgarywholesale/lib']`.
 - Tailwind v4 must scan the shared package: in each app's global CSS, import the shared stylesheet and add an `@source` directive pointing at `packages/ui/src`, otherwise shared component classes will be missing.
 - App URLs come from env vars (`NEXT_PUBLIC_ADMIN_URL`, `NEXT_PUBLIC_B2B_URL`, `NEXT_PUBLIC_MOBILE_URL`) with localhost defaults, so the demo can be deployed to Vercel as three projects from one repo.
 
@@ -240,7 +240,7 @@ Note: the three apps run on different origins, so their persisted state is indep
 
 ---
 
-## 6. App 1 — Westwinds Admin (`apps/admin`)
+## 6. App 1 — Calgary Wholesale Admin (`apps/admin`)
 
 ### 6.1 Layout
 
@@ -350,7 +350,7 @@ Company profile, tax settings (HST 13%), order number prefixes, low-stock alert 
 
 ---
 
-## 7. App 2 — Westwinds Trade, B2B portal (`apps/b2b`)
+## 7. App 2 — Calgary Wholesale Cash N Carry, B2B portal (`apps/b2b`)
 
 ### 7.1 Layout
 
@@ -402,7 +402,7 @@ Tabs: Company profile, Delivery locations (add/edit), **Team members** (invite u
 
 ---
 
-## 8. App 3 — Westwinds B2C app (`apps/mobile`)
+## 8. App 3 — Calgary Wholesale B2C app (`apps/mobile`)
 
 ### 8.1 Phone frame (critical)
 
@@ -494,11 +494,11 @@ Profile header, and rows for: Addresses, Payment methods, Favourites, Notificati
 
 ## 10. Code quality rules
 
-- TypeScript strict, no `any`. Shared types come from `@westwinds/data`.
+- TypeScript strict, no `any`. Shared types come from `@calgarywholesale/data`.
 - Server components for layouts and static shells; `"use client"` only where interactivity requires it.
 - No file longer than ~300 lines; split into components.
 - No API routes, no server actions that touch external services, no real network calls.
-- No lorem ipsum anywhere; all copy is realistic and specific to Westwinds.
+- No lorem ipsum anywhere; all copy is realistic and specific to Calgary Wholesale.
 - Light theme only, but keep all colours as tokens so dark mode could be added later.
 - Don't leave shadcn components at their default styling; they must use the tokens above.
 - Don't use purple/blue gradient washes, glassmorphism, or emoji icons.
@@ -510,7 +510,7 @@ Profile header, and rows for: Addresses, Payment methods, Favourites, Notificati
 
 Work in phases. After each phase, run `pnpm typecheck && pnpm build`, fix all errors, give a short summary of what was built, and wait for my "continue" before starting the next phase.
 
-1. **Scaffold:** Turborepo + pnpm, three Next.js apps on ports 3000/3001/3002, shared TypeScript and ESLint configs, `@westwinds/ui`, `@westwinds/data`, `@westwinds/lib` wired with `transpilePackages` and Tailwind `@source`. Prove it with a shared `Button` rendering in all three apps.
+1. **Scaffold:** Turborepo + pnpm, three Next.js apps on ports 3000/3001/3002, shared TypeScript and ESLint configs, `@calgarywholesale/ui`, `@calgarywholesale/data`, `@calgarywholesale/lib` wired with `transpilePackages` and Tailwind `@source`. Prove it with a shared `Button` rendering in all three apps.
 2. **Design system:** tokens, fonts, shadcn components restyled, and all shared composites from §4.4 (with a hidden `/_kit` page in admin to review them).
 3. **Data layer:** types, seeded datasets, mock API, React Query provider, zustand stores.
 4. **Admin app:** shell and role simulation first, then Dashboard, Inventory, Transfers, Orders, Products, then the remaining screens.

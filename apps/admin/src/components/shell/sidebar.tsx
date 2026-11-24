@@ -7,8 +7,8 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { cn } from "@westwinds/lib";
-import { Badge, Button, Logo, ScrollArea } from "@westwinds/ui";
+import { cn } from "@calgarywholesale/lib";
+import { Badge, Button, Logo, ScrollArea } from "@calgarywholesale/ui";
 import { navGroups } from "@/lib/nav";
 import { filterNavByRole } from "@/lib/roles";
 import { useSessionStore } from "@/stores/session-store";

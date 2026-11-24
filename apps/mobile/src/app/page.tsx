@@ -27,9 +27,9 @@ import {
   getPromotions,
   type Category,
   type Product,
-} from "@westwinds/data";
-import { brand, cn } from "@westwinds/lib";
-import { CATEGORY_TINTS, ProductImage, Skeleton, SPOTLIGHT_TINTS } from "@westwinds/ui";
+} from "@calgarywholesale/data";
+import { brand, cn } from "@calgarywholesale/lib";
+import { CATEGORY_TINTS, ProductImage, Skeleton, SPOTLIGHT_TINTS } from "@calgarywholesale/ui";
 import { AddressPickerSheet } from "@/components/address-sheet";
 import { ProductGrid, ProductRail } from "@/components/product-card";
 import { useStatusBarTone } from "@/components/phone-frame-context";

@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { lakeshoreCustomer } from "@westwinds/data";
+import { lakeshoreCustomer } from "@calgarywholesale/data";
 
 export type SessionRole = "Buyer" | "Approver" | "Account admin";
 
@@ -73,6 +73,6 @@ export const useSessionStore = create<SessionState>()(
         }),
       setLocationId: (locationId) => set({ locationId }),
     }),
-    { name: "ww-b2b:session" },
+    { name: "cw-b2b:session" },
   ),
 );

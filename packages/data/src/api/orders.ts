@@ -1,4 +1,4 @@
-import { mockDelay } from "@westwinds/lib";
+import { mockDelay } from "@calgarywholesale/lib";
 import type {
   B2BOrderStatus,
   B2COrderStatus,

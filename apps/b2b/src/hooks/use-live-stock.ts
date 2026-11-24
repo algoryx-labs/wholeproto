@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import type { StockLevel } from "@westwinds/data";
+import type { StockLevel } from "@calgarywholesale/data";
 
 export type LiveStockMap = Record<string, number>;
 

@@ -1,4 +1,4 @@
-import { roles, type PermissionModule, type Role } from "@westwinds/data";
+import { roles, type PermissionModule, type Role } from "@calgarywholesale/data";
 import type { NavGroup, NavItem } from "./nav";
 
 const MODULE_ALIASES: Record<string, PermissionModule> = {

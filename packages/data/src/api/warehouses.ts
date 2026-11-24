@@ -1,4 +1,4 @@
-import { mockDelay } from "@westwinds/lib";
+import { mockDelay } from "@calgarywholesale/lib";
 import type { Warehouse } from "../types";
 import { warehouses } from "../seed/warehouses";
 

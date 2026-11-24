@@ -1,5 +1,5 @@
 import { addDays, differenceInCalendarDays, parseISO } from "date-fns";
-import { DEMO_ANCHOR, type Invoice } from "@westwinds/data";
+import { DEMO_ANCHOR, type Invoice } from "@calgarywholesale/data";
 import type { PaymentMethod, PortalPayment } from "@/stores/billing-store";
 
 export const BILLING_TODAY = DEMO_ANCHOR;

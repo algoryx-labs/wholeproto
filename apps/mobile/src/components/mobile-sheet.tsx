@@ -7,7 +7,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetDescription,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { usePhoneFrame } from "./phone-frame-context";
 
 export function MobileSheet({

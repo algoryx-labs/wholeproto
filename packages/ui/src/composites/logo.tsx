@@ -1,5 +1,5 @@
 import * as React from "react";
-import { brand, cn } from "@westwinds/lib";
+import { brand, cn } from "@calgarywholesale/lib";
 
 export interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: "sm" | "md" | "lg";

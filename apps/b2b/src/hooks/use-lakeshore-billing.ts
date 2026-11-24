@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { addDays } from "date-fns";
-import { getInvoices, LAKESHORE_CUSTOMER_ID } from "@westwinds/data";
+import { getInvoices, LAKESHORE_CUSTOMER_ID } from "@calgarywholesale/data";
 import {
   agingBuckets,
   applyPayments,

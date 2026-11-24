@@ -7,7 +7,7 @@ import {
   getProducts,
   getWarehouses,
   productById,
-} from "@westwinds/data";
+} from "@calgarywholesale/data";
 import { useInventoryStore, type StockCell, stockKey } from "@/stores/inventory-store";
 import { useSessionStore } from "@/stores/session-store";
 

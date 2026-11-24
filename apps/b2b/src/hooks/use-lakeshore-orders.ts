@@ -7,7 +7,7 @@ import {
   LAKESHORE_CUSTOMER_ID,
   type B2BOrder,
   type Order,
-} from "@westwinds/data";
+} from "@calgarywholesale/data";
 import { demoPickupOrders } from "@/lib/pickups";
 import { useOrdersOverlayStore } from "@/stores/orders-overlay-store";
 

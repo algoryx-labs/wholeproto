@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { motion } from "motion/react";
 import { Check, MapPin, Receipt } from "lucide-react";
-import { brand, formatCurrency } from "@westwinds/lib";
-import { Button, ProductImage } from "@westwinds/ui";
+import { brand, formatCurrency } from "@calgarywholesale/lib";
+import { Button, ProductImage } from "@calgarywholesale/ui";
 import { productImageSrc } from "@/lib/product-image";
 import { useSessionStore } from "@/stores/session";
 

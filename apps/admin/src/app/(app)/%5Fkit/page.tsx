@@ -12,7 +12,7 @@ import {
   Qty,
   StatusBadge,
   StockHealth,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 
 export default function KitPage() {
   return (

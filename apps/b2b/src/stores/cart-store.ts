@@ -82,6 +82,6 @@ export const useCartStore = create<CartState>()(
           get().lines.reduce((sum, l) => sum + l.qty * l.unitPrice, 0) * 100,
         ) / 100,
     }),
-    { name: "ww-b2b:cart" },
+    { name: "cw-b2b:cart" },
   ),
 );

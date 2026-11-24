@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { toast } from "sonner";
-import { formatDate } from "@westwinds/lib";
+import { formatDate } from "@calgarywholesale/lib";
 import {
   Badge,
   Button,
@@ -17,7 +17,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@westwinds/ui";
+} from "@calgarywholesale/ui";
 import { Package } from "lucide-react";
 import { useLakeshoreOrders } from "@/hooks/use-lakeshore-orders";
 import { isPickup } from "@/lib/pickups";
